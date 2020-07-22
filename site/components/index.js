@@ -6,8 +6,9 @@ export const Container = styled.div.attrs({ className: "container" })`
     width: 100%;
     padding: ${theme.gutter}px;
     box-sizing: border-box;
+	margin: 45px auto;
 
-    ${theme.breakpoint("md")`max-width: 720px;`}
+    ${theme.breakpoint("md")`max-width: 720px; margin: 75px auto;`}
     ${theme.breakpoint("lg")`max-width: 1024px;`}
     ${theme.breakpoint("xl")`max-width: 1280px;`}
 `;

@@ -9,11 +9,13 @@ export const Header = ({ children }) => {
 		<Wrapper>
 			<Container>
 				<Grid>
-					<Logo />
-					<Link to="/about">About</Link>
 					<Link to="/events">What's on</Link>
-					<Link to="/sermons">Preaches</Link>
+					<Link to="/leaders">Leaders</Link>
+					<Link to="/teams">Teams</Link>
+					<Link to="/about">About</Link>
+					<Link to="/sermons">Sermons</Link>
 					<Link to="/contact">Contact</Link>
+					<Logo />
 				</Grid>
 			</Container>
 		</Wrapper>

@@ -1,4 +1,3 @@
-import { Container } from "..";
 import styled from "styled-components";
 import theme from "../../theme";
 
@@ -8,6 +7,7 @@ export const Wrapper = styled.nav`
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	position: relative;
 	${theme.shadow};
 
 	.caption {
@@ -15,11 +15,9 @@ export const Wrapper = styled.nav`
 	}
 `;
 
-export const Logo = styled.img.attrs({ src: "/assets/images/logo.png" })`
-	grid-column: 1 / 6;
-	align-self: center;
-
-	${theme.breakpoint("lg")`
-        grid-column: 1 / 9;
-    `}
+export const Logo = styled.img.attrs({ src: "/assets/images/crown-logo.png" })`
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 100%;
 `;
