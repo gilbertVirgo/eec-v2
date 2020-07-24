@@ -5,6 +5,7 @@ export default [
 		author: "Steve Coster",
 		date: "2020-07-18",
 		topics: ["gender", "wisdom"],
+		series: "James",
 	},
 	{
 		title: "Wisdom",
@@ -12,6 +13,7 @@ export default [
 		author: "Evans Bissessar",
 		date: "2020-07-11",
 		topics: ["suffering", "grace"],
+		series: "James",
 	},
 	{
 		title: "Counter-Culture of Grace",
@@ -19,6 +21,7 @@ export default [
 		author: "Tom Head",
 		date: "2020-07-04",
 		topics: ["discipline", "gender"],
+		series: "James",
 	},
 	{
 		title: "Rhubarb Rhubarb Rhubarb!",
@@ -26,6 +29,7 @@ export default [
 		author: "Frazer Macdonald",
 		date: "2020-06-27",
 		topics: ["sexuality", "marriage"],
+		series: "James",
 	},
 	{
 		title: "Wise Relationships",
@@ -33,6 +37,7 @@ export default [
 		author: "Tom Head",
 		date: "2020-06-20",
 		topics: ["grace", "discipline"],
+		series: "James",
 	},
 	{
 		title: "Your Tongue",
@@ -40,6 +45,7 @@ export default [
 		author: "Carl Bodecker",
 		date: "2020-06-13",
 		topics: ["love", "grace"],
+		series: "James",
 	},
 	{
 		title: "The Messy Gospel",
@@ -47,6 +53,7 @@ export default [
 		author: "Tom Head",
 		date: "2020-06-06",
 		topics: ["marriage", "discipline"],
+		series: "Genesis",
 	},
 	{
 		title: "Life of Faith",
@@ -54,6 +61,7 @@ export default [
 		author: "Dan Owen",
 		date: "2020-05-30",
 		topics: ["wisdom", "sexuality"],
+		series: "Genesis",
 	},
 	{
 		title: "Justice",
@@ -61,6 +69,7 @@ export default [
 		author: "Tom Head",
 		date: "2020-05-23",
 		topics: ["creation", "love"],
+		series: "Genesis",
 	},
 	{
 		title: "Know the word, Do the word",
@@ -68,6 +77,7 @@ export default [
 		author: "Tom Sexton",
 		date: "2020-05-16",
 		topics: ["grace", "marriage"],
+		series: "Genesis",
 	},
 	{
 		title: "Temptation",
@@ -75,6 +85,7 @@ export default [
 		author: "Steve Coster",
 		date: "2020-05-02",
 		topics: ["grace", "marriage"],
+		series: "Claims of Jesus",
 	},
 	{
 		title: "Trouble",
@@ -82,6 +93,7 @@ export default [
 		author: "Tom Head",
 		date: "2020-04-25",
 		topics: ["suffering", "sexuality"],
+		series: "Claims of Jesus",
 	},
 	{
 		title: "Hard Life. Good Life",
@@ -89,6 +101,7 @@ export default [
 		author: "Frazer Macdonald",
 		date: "2020-04-18",
 		topics: ["wisdom", "marriage"],
+		series: "Claims of Jesus",
 	},
 	{
 		title: "Easter",
@@ -96,6 +109,7 @@ export default [
 		author: "Tom Head",
 		date: "2020-04-11",
 		topics: ["wisdom", "sexuality"],
+		series: "The Lord's Prayer",
 	},
 	{
 		title: "It all went wrong!",
@@ -103,6 +117,7 @@ export default [
 		author: "Tom Head",
 		date: "2020-04-04",
 		topics: ["sexuality", "wisdom"],
+		series: "The Lord's Prayer",
 	},
 	{
 		title: "Day 7: Rest",
@@ -110,6 +125,7 @@ export default [
 		author: "Steve Coster",
 		date: "2020-03-29",
 		topics: ["discipline", "wisdom"],
+		series: "The Lord's Prayer",
 	},
 	{
 		title: "Male & Female He created them",
@@ -117,6 +133,7 @@ export default [
 		author: "Tom Head",
 		date: "2020-03-15",
 		topics: ["suffering", "sexuality"],
+		series: "Matthew",
 	},
 	{
 		title: "Day 6: Male & Female He created them",
@@ -124,6 +141,7 @@ export default [
 		author: "Frazer Macdonald",
 		date: "2020-03-08",
 		topics: ["wisdom", "grace"],
+		series: "Matthew",
 	},
 	{
 		title: "Baptisms",
@@ -131,6 +149,7 @@ export default [
 		author: "Tom Head",
 		date: "2020-03-01",
 		topics: ["suffering", "sexuality"],
+		series: "Matthew",
 	},
 	{
 		title: "Day 6: Animals",
@@ -138,6 +157,7 @@ export default [
 		author: "Dan Owen",
 		date: "2020-02-23",
 		topics: ["gender", "marriage"],
+		series: "EEC Under Construction",
 	},
 	{
 		title: "Day 5: Sea Creatures & Birds",
@@ -145,6 +165,7 @@ export default [
 		author: "Carl Bodecker",
 		date: "2020-02-16",
 		topics: ["love", "marriage"],
+		series: "EEC Under Construction",
 	},
 	{
 		title: "Day 4: Sun & Moon & Stars",
@@ -152,6 +173,7 @@ export default [
 		author: "Tom Sexton",
 		date: "2020-02-09",
 		topics: ["love", "grace"],
+		series: "EEC Under Construction",
 	},
 	{
 		title: "Day 3: Land & Sea",
@@ -159,6 +181,7 @@ export default [
 		author: "Evans Bissessar",
 		date: "2020-02-05",
 		topics: ["marriage", "creation"],
+		series: "Superheroes",
 	},
 	{
 		title: "Day 2: Water & Sky",
@@ -166,6 +189,7 @@ export default [
 		author: "Steve Coster",
 		date: "2020-01-26",
 		topics: ["marriage", "suffering"],
+		series: "Superheroes",
 	},
 	{
 		title: "Day 1: Day & Night",
@@ -173,6 +197,7 @@ export default [
 		author: "Steve Coster",
 		date: "2020-01-19",
 		topics: ["discipline", "marriage"],
+		series: "Superheroes",
 	},
 	{
 		title: "Just God",
@@ -180,5 +205,6 @@ export default [
 		author: "Tom Head",
 		date: "2020-01-12",
 		topics: ["grace", "creation"],
+		series: "Superheroes",
 	},
 ];
