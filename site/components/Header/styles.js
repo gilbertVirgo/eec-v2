@@ -21,3 +21,10 @@ export const Logo = styled.img.attrs({ src: "/assets/images/crown-logo.png" })`
 	right: 0;
 	height: 100%;
 `;
+
+
+
+export const Nav = styled.nav`
+
+	transform: translateX(${({active}) => active ? 0 : 100}%);
+`
