@@ -14,8 +14,8 @@ export const Footer = () => {
 				style={{ height: "1000px" }}
 				gridProps={{ style: { rowGap: `8px` } }}
 			>
-				{contact.map(({ icon, content, link }) => (
-					<Row>
+				{contact.map(({ icon, content, link }, index) => (
+					<Row key={index}>
 						<Icon src={icon} />
 
 						<Paragraph>

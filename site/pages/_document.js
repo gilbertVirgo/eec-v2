@@ -3,6 +3,7 @@ import Document, { Head, Main, NextScript } from "next/document";
 // Import styled components ServerStyleSheet
 import { ServerStyleSheet } from "styled-components";
 import globalStyles from "../global-styles";
+// import 'react-input-range/lib/css/index.css';
 
 export default class MyDocument extends Document {
 	static getInitialProps({ renderPage }) {

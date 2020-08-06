@@ -18,13 +18,13 @@ export default function Leaders() {
 	return (
 		<Layout.Default title="Leaders" style={{ color: "white" }}>
 			<Banner src="/assets/images/banner.png">
-				<Badge
+				<Banner.Badge
 					borderColor={theme.color.mustard}
 					starColor="white"
 					textColor="white"
 				>
 					Leaders
-				</Badge>
+				</Banner.Badge>
 			</Banner>
 			{leaders.map(({ name, color, image, content }, index) => (
 				<Stripe

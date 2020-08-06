@@ -11,13 +11,13 @@ export default function Teams() {
 	return (
 		<Layout.Default title="What's On">
 			<Banner src="/assets/images/team.png">
-				<Badge
+				<Banner.Badge
 					borderColor={theme.color.orange}
 					starColor="white"
 					textColor="white"
 				>
 					Teams
-				</Badge>
+				</Banner.Badge>
 			</Banner>
 			<Container>
 				<Grid>
