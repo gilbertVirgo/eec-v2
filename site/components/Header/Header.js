@@ -1,9 +1,9 @@
 import { Container, Grid } from "..";
 import { Logo, Wrapper } from "./styles";
 
+import Headroom from "react-headroom";
 import { Link } from "./Link";
 import React from "react";
-import Headroom from 'react-headroom';
 
 export const Header = ({ children }) => {
 	return (
@@ -16,7 +16,7 @@ export const Header = ({ children }) => {
 						<Link to="/teams">Teams</Link>
 						<Link to="/about">About</Link>
 						<Link to="/preaches">Preaches</Link>
-						<Link to="/sermons">Sermons</Link>
+						{/* <Link to="/sermons">Sermons</Link> */}
 						<Link to="/contact">Contact</Link>
 						<Logo />
 					</Grid>
