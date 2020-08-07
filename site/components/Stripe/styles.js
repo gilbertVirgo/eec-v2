@@ -52,7 +52,7 @@ export const Caption = styled.div`
 	margin-bottom: ${theme.gutter}px;
 
 	${theme.breakpoint("md")`grid-column: 1 / 7; margin-bottom: 0`}
-	${theme.breakpoint("lg")`grid-column: 2 / 6`}
+	${theme.breakpoint("xl")`grid-column: 2 / 6`}
 `;
 
 export const Figure = styled.div`
