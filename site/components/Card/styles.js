@@ -17,6 +17,6 @@ export const Image = styled.div`
     margin-bottom: ${theme.gutter}px;
 `;
 export const Body = styled.div`
-	padding: ${theme.gutter}px ${theme.gutter}px 0;
+	/* padding: ${theme.gutter}px ${theme.gutter}px 0; */
 	box-sizing: border-box;
 `;
