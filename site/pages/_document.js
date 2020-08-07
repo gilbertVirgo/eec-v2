@@ -3,6 +3,7 @@ import Document, { Head, Main, NextScript } from "next/document";
 // Import styled components ServerStyleSheet
 import { ServerStyleSheet } from "styled-components";
 import globalStyles from "../global-styles";
+
 // import 'react-input-range/lib/css/index.css';
 
 export default class MyDocument extends Document {
@@ -27,9 +28,14 @@ export default class MyDocument extends Document {
 			<html>
 				<Head>
 					{/* Step 5: Output the styles in the head  */}
-					<link
+					{/* <link
 						href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
 						rel="stylesheet"
+					/> */}
+
+					<link
+						rel="stylesheet"
+						href="https://use.typekit.net/wtp3tgd.css"
 					/>
 
 					{/* Global styles */}
