@@ -9,8 +9,8 @@ import theme from "../theme";
 
 export default function Teams() {
 	return (
-		<Layout.Default title="What's On">
-			<Banner src="/assets/images/team.png">
+		<Layout.Default title="Teams">
+			<Banner src="/assets/images/teams.png">
 				<Banner.Badge
 					borderColor={theme.color.orange}
 					starColor="white"
