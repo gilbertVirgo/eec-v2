@@ -3,7 +3,6 @@ import React from "react";
 import styled from "styled-components";
 
 const Wrapper = styled.a`
-	text-align: right;
 	height: 30px;
 	line-height: 30px;
 	color: black;

@@ -9,10 +9,6 @@ export const Wrapper = styled.nav`
 	align-items: center;
 	position: relative;
 	${theme.shadow};
-
-	.caption {
-		text-align: right;
-	}
 `;
 
 export const Logo = styled.img.attrs({ src: "/assets/images/crown-logo.png" })`
