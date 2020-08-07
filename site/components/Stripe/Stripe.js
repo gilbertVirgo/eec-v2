@@ -3,12 +3,15 @@ import { Container, Grid } from "..";
 
 import Badge from "../Badge";
 import React from "react";
+import theme from "../../theme";
 
 export function Stripe({ children, color, gridProps, ...props }) {
 	return (
 		<Wrapper color={color} {...props}>
 			<Container>
-				<Grid {...gridProps}>{children}</Grid>
+				<Grid style={{ rowGap: `${theme.gutter}px` }} {...gridProps}>
+					{children}
+				</Grid>
 			</Container>
 		</Wrapper>
 	);
