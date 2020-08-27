@@ -1,16 +1,21 @@
-import { Container, Grid } from "..";
-import { Logo, Wrapper } from "./styles";
+import { Container } from "..";
+import { Logo, Wrapper, GridHeader, OpenMenu, CloseMenu } from "./styles";
 
 import Headroom from "react-headroom";
 import { Link } from "./Link";
-import React from "react";
+import React, { useState } from 'react';
 
 export const Header = ({ children }) => {
+
+	const [open, setOpen] = useState(false)
+
 	return (
 		<Headroom>
-			<Wrapper>
+			<Wrapper open={open}>
 				<Container>
-					<Grid>
+					<CloseMenu open={open} onClick={() => setOpen(!open)} style={{ 'marginTop': '30px', 'marginBottom': '30px' }} />
+					<OpenMenu open={open} onClick={() => setOpen(!open)} style={{ 'marginTop': '30px', 'marginBottom': '30px' }}/>
+					<GridHeader open={open}>
 						<Link to="/events">What's on</Link>
 						<Link to="/leaders">Leaders</Link>
 						<Link to="/teams">Teams</Link>
@@ -18,8 +23,8 @@ export const Header = ({ children }) => {
 						<Link to="/preaches">Preaches</Link>
 						{/* <Link to="/sermons">Sermons</Link> */}
 						<Link to="/contact">Contact</Link>
-						<Logo />
-					</Grid>
+					</GridHeader>
+					<Logo />
 				</Container>
 			</Wrapper>
 		</Headroom>

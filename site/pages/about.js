@@ -21,8 +21,10 @@ import Card from "../components/Card";
 import Layout from "../components/Layout";
 import Stripe from "../components/Stripe";
 import theme from "../theme";
+import { Client } from '../prismic-configuration'
 
-export default function About() {
+const About = (props) => {
+
 	return (
 		<Layout.Default title="About">
 			<Banner src="/assets/images/banner.png">
@@ -89,7 +91,7 @@ export default function About() {
 					Here are some dos
 				</Heading>
 				<Grid style={{ marginBottom: "100px" }}>
-					{dos.map(({ title, description }, index) => (
+					{props?.doc?.data.dos.map(({ title, description }, index) => (
 						<Card key={index}>
 							<Card.Body>
 								<Caption>{title}</Caption>
@@ -102,7 +104,7 @@ export default function About() {
 					Here are some don'ts
 				</Heading>
 				<Grid>
-					{dos.map(({ title, description }, index) => (
+					{props?.doc?.data.dont.map(({ title, description }, index) => (
 						<Card key={index}>
 							<Card.Body>
 								<Caption>{title}</Caption>
@@ -115,3 +117,14 @@ export default function About() {
 		</Layout.Default>
 	);
 }
+
+About.getInitialProps = async (context) => {
+	const req = context.req;
+	const data = await Client(req).getSingle('about');
+	// No the prismic data is populated in the props.doc
+	return {
+		doc: data
+	}
+}
+
+export default About;

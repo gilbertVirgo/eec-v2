@@ -21,8 +21,8 @@ export default function Teams() {
 			</Banner>
 			<Container>
 				<Grid>
-					{regular.map(({ title, description, image }) => (
-						<Card>
+					{regular.map(({ title, description, image }, index) => (
+						<Card key={index}>
 							<Card.Image src={image} />
 							<Card.Body>
 								<Caption>{title}</Caption>

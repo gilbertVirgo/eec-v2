@@ -1,5 +1,6 @@
 import { Caption, Group, Heading, Paragraph } from "../components";
 
+import { CarouselContainer } from "../components/index";
 import Badge from "../components/Badge";
 import Banner from "../components/Banner";
 import Layout from "../components/Layout";
@@ -8,67 +9,82 @@ import Pin from "../public/assets/icons/pin.svg";
 import Player from "../components/Player";
 import Stripe from "../components/Stripe";
 import theme from "../theme";
+// import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
 
 export default function Home() {
 	return (
 		<Layout.Default title="Home" style={{ color: "white" }}>
-			<Banner
-				src="/assets/images/banner.png"
-				gridProps={{ style: { rowGap: theme.gutter + "px" } }}
-			>
-				<Banner.Badge
-					borderColor={theme.color.mustard}
-					starColor="white"
-					textColor="white"
-				>
-					We don't care
-				</Banner.Badge>
-				<Banner.Body center>
-					<List
-						icon="/assets/icons/exit.svg"
-						style={{
-							marginBottom: "75px",
-						}}
-					>
-						<List.Item>
-							<Paragraph>what you wear</Paragraph>
-						</List.Item>
-						<List.Item>
-							<Paragraph>how old you are</Paragraph>
-						</List.Item>
-						<List.Item>
-							<Paragraph>where you're from</Paragraph>
-						</List.Item>
-						<List.Item>
-							<Paragraph>about your criminal record</Paragraph>
-						</List.Item>
-						<List.Item>
-							<Paragraph>about your bank balance</Paragraph>
-						</List.Item>
-						<List.Item>
-							<Paragraph>who or what you vote for</Paragraph>
-						</List.Item>
-					</List>
-					<img
-						src="/assets/icons/tagline.svg"
-						width="100%"
-						style={{
-							display: "block",
-							marginBottom: `${theme.gutter}px`,
-						}}
-					/>
-					<Paragraph
-						style={{
-							textAlign: "center",
-							fontWeight: "bold",
-						}}
-					>
-						East End Church is a place where
-						<br />
-						Jesus meets normal people
-					</Paragraph>
-				</Banner.Body>
-			</Banner>
+
+			<CarouselContainer style={{ marginBottom: "50px" }}>
+				<Carousel showArrows={false} showThumbs={false} showStatus={false}>
+					<div>
+						<Banner
+							src="/assets/images/banner.png"
+							gridProps={{ style: { rowGap: theme.gutter + "px" } }}
+						>
+							<Banner.Badge
+								borderColor={theme.color.mustard}
+								starColor="white"
+								textColor="white"
+							>
+								We don't care
+							</Banner.Badge>
+							<Banner.Body center>
+								<List
+									icon="/assets/icons/exit.svg"
+									style={{
+										marginBottom: "75px",
+									}}
+								>
+									<List.Item>
+										<Paragraph>what you wear</Paragraph>
+									</List.Item>
+									<List.Item>
+										<Paragraph>how old you are</Paragraph>
+									</List.Item>
+									<List.Item>
+										<Paragraph>where you're from</Paragraph>
+									</List.Item>
+									<List.Item>
+										<Paragraph>about your criminal record</Paragraph>
+									</List.Item>
+									<List.Item>
+										<Paragraph>about your bank balance</Paragraph>
+									</List.Item>
+									<List.Item>
+										<Paragraph>who or what you vote for</Paragraph>
+									</List.Item>
+								</List>
+								<img
+									src="/assets/icons/tagline.svg"
+									width="100%"
+									style={{
+										display: "block",
+										marginBottom: `${theme.gutter}px`,
+									}}
+								/>
+								<Paragraph
+									style={{
+										textAlign: "center",
+										fontWeight: "bold",
+									}}
+								>
+									East End Church is a place where
+								<br />
+								Jesus meets normal people
+							</Paragraph>
+							</Banner.Body>
+						</Banner>
+					</div>
+					<div>
+
+					</div>
+					<div>
+						
+					</div>
+				</Carousel>
+			</CarouselContainer>
 			<Stripe color={theme.color.blue}>
 				<Stripe.Badge
 					borderColor="white"
