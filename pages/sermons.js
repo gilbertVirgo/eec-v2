@@ -8,7 +8,7 @@ import {
 	Section,
 	Subheading,
 } from "../components";
-import { RangeWrapper, Search, Sidebar } from "../sermons";
+import { RangeWrapper, Search, Sidebar } from "../styles/sermons";
 import {
 	fetchPodcastEpisodes,
 	getXMLAttribute,

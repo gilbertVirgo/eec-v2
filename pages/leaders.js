@@ -1,4 +1,9 @@
-import { BadgeWrapper, Columns, Gradient, ImageWrapper } from "../leaders";
+import {
+	BadgeWrapper,
+	Columns,
+	Gradient,
+	ImageWrapper,
+} from "../styles/leaders";
 import { Caption, Paragraph } from "../components";
 
 import Badge from "../components/Badge";

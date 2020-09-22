@@ -1,6 +1,6 @@
-import { Section as DefaultSection } from "../../components";
+import { Section as DefaultSection } from "../components";
 import styled from "styled-components";
-import theme from "../../theme";
+import theme from "../theme";
 
 export const Sidebar = styled.div`
 	grid-column: 1 / -1;

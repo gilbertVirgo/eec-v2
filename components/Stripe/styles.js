@@ -28,12 +28,13 @@ export const Wrapper = styled.div.attrs({
 					(marginBottom) => `margin-bottom: ${marginBottom}px;`
 			  )}
 
-	${theme.breakpoint("md")`
+	${theme.breakpoint("lg")`
 		${({ sticky }) =>
 			sticky &&
 			`
 			position: sticky;
 			top: calc(50vh - 25%);
+			margin-bottom: 50vh;
 		`}
 	`}
 `;
