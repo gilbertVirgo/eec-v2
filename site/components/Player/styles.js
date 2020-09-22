@@ -1,49 +1,47 @@
+import InputRange from "react-input-range";
 import { Paragraph } from "..";
 import styled from "styled-components";
 import theme from "../../theme";
 
 export const Wrapper = styled.div`
-	display: grid;
-	grid-template-columns: repeat(7, 1fr);
-	column-gap: ${theme.gutter}px;
-	row-gap: ${theme.gutter}px;
-	color: white;
+	background-color: ${({ inverted }) =>
+		inverted ? "#ffffff40" : theme.color.light};
+	display: flex;
+	align-items: center;
+	padding: ${theme.gutter}px;
+	box-sizing: border-box;
+
+	.input-range__track,
+	.input-range__track--background {
+		background: ${({ inverted }) =>
+			inverted ? "white" : "black"} !important;
+		.input-range__track.input-range__track--active {
+			background: ${({ inverted }) =>
+				inverted ? "white" : "black"} !important;
+		}
+	}
+	.input-range__slider {
+		background: ${({ inverted }) =>
+			inverted ? "white" : "black"} !important;
+	}
+	.input-range__label {
+		display: none;
+	}
 `;
 
-export const CurrentTime = styled(Paragraph)`
-	grid-column: 1 / 2;
-	text-align: right;
-`;
+const assetRoot = "/assets/icons/";
 
-export const StatusBar = styled.div`
-	grid-column: 2 / 7;
-	height: 3px;
-	border-radius: 3px;
-	background-color: white;
-	margin-top: 8px;
+export const Play = styled.div`
+	background-image: url("${assetRoot}${({ playing }) =>
+		playing ? "pause" : "play"}-${({ inverted }) =>
+		inverted ? "white" : "black"}.svg");
+	background-size: cover;
+	background-position: center;
+	/* margin-right: ${theme.gutter * 2}px; */
+	width: 40px !important;
+	height: 40px;
 `;
-
-export const Duration = styled(Paragraph)`
-	grid-column: 7 / 8;
-`;
-
-export const Back = styled.img.attrs({ src: "/assets/icons/back-15.svg" })`
-	grid-column: 3 / 4;
-	text-align: center;
-	width: 25px;
-	height: 25px;
-`;
-
-export const Play = styled.img.attrs({ src: "/assets/icons/play.svg" })`
-	grid-column: 4 / 5;
-	text-align: center;
-	width: 25px;
-	height: 25px;
-`;
-
-export const Skip = styled.img.attrs({ src: "/assets/icons/skip-15.svg" })`
-	grid-column: 5 / 6;
-	text-align: center;
-	width: 25px;
-	height: 25px;
+export const BarWrapper = styled.div`
+	flex: 1;
+	margin-left: ${theme.gutter}px;
 `;

@@ -1,20 +1,46 @@
+import { Banner, Carousel } from "../components/Banner";
 import { Caption, Group, Heading, Paragraph } from "../components";
+import {
+	fetchPodcastEpisodes,
+	getXMLAttribute,
+	getXMLProperty,
+} from "./scripts/sermons";
 
-import Badge from "../components/Badge";
-import Banner from "../components/Banner";
+import ActivityIndicator from "../components/ActivityIndicator";
 import Layout from "../components/Layout";
 import List from "../components/List";
 import Pin from "../public/assets/icons/pin.svg";
 import Player from "../components/Player";
 import Stripe from "../components/Stripe";
+import { fetchEvents } from "./scripts/events";
+import moment from "moment";
 import theme from "../theme";
 
 export default function Home() {
+	const [latestEpisode, setLatestEpisode] = React.useState();
+	const [latestEvent, setLatestEvent] = React.useState();
+
+	React.useEffect(() => {
+		(async function () {
+			const episodes = await fetchPodcastEpisodes();
+			setLatestEpisode(episodes[0]);
+
+			const events = await fetchEvents();
+			setLatestEvent(events[0]);
+		})();
+	}, []);
+
 	return (
 		<Layout.Default title="Home" style={{ color: "white" }}>
-			<Banner
+			<Carousel
 				src="/assets/images/banner.png"
 				gridProps={{ style: { rowGap: theme.gutter + "px" } }}
+				frames={[
+					// "/assets/images/church.jpg",
+					"/assets/images/sermons.jpg",
+					"/assets/images/contact.png",
+					"/assets/images/teams.png",
+				]}
 			>
 				<Banner.Badge
 					borderColor={theme.color.mustard}
@@ -24,6 +50,7 @@ export default function Home() {
 					We don't care
 				</Banner.Badge>
 				<Banner.Body center>
+					{/* Needs to be stuttered */}
 					<List
 						icon="/assets/icons/exit.svg"
 						style={{
@@ -68,74 +95,123 @@ export default function Home() {
 						Jesus meets normal people
 					</Paragraph>
 				</Banner.Body>
-			</Banner>
-			<Stripe color={theme.color.blue}>
-				<Stripe.Badge
-					borderColor="white"
-					textColor="white"
-					starColor={theme.color.blue}
-				>
-					Coming up
-				</Stripe.Badge>
-				<Stripe.Caption>
-					<Group>
-						<Heading>Church Day Out</Heading>
-						<List style={{ listStyleType: "none" }}>
-							<List.Item icon="/assets/icons/pin.svg">
-								<Caption>Victoria Park</Caption>
-							</List.Item>
-							<List.Item icon="/assets/icons/calendar.svg">
-								<Caption>3rd August 2020</Caption>
-							</List.Item>
-						</List>
-					</Group>
+			</Carousel>
 
-					<Paragraph>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-						sed do eiusmod tempor incididunt ut labore et dolore
-						magna aliqua.
-					</Paragraph>
-				</Stripe.Caption>
-				<Stripe.Figure>
-					<img src="/assets/images/picnic.jpg" />
-				</Stripe.Figure>
-			</Stripe>
-
-			<Stripe color={theme.color.orange}>
+			<Stripe color={theme.color.orange} style={{ color: "white" }}>
 				<Stripe.Badge
 					borderColor="white"
 					textColor="white"
 					starColor={theme.color.orange}
 				>
+					Coming up
+				</Stripe.Badge>
+				{latestEvent ? (
+					<React.Fragment>
+						<Stripe.Body>
+							<Group>
+								<Heading>{latestEvent.title}</Heading>
+								<List style={{ listStyleType: "none" }}>
+									<List.Item icon="/assets/icons/pin.svg">
+										<Caption>
+											{latestEvent.location}
+										</Caption>
+									</List.Item>
+									<List.Item icon="/assets/icons/calendar.svg">
+										<Caption>
+											{moment(latestEvent.date).format(
+												"MMMM Do YYYY"
+											)}
+										</Caption>
+									</List.Item>
+								</List>
+							</Group>
+
+							<Group>
+								<Paragraph>{latestEvent.description}</Paragraph>
+							</Group>
+
+							<Caption>
+								<a href="/events">
+									See what's on
+									<img
+										style={{ marginLeft: "4px" }}
+										src="/assets/icons/chevron-right.svg"
+									/>
+								</a>
+							</Caption>
+						</Stripe.Body>
+						<Stripe.Figure>
+							<img src={latestEvent.image.url} />
+						</Stripe.Figure>
+					</React.Fragment>
+				) : (
+					<ActivityIndicator inverted>
+						Loading events...
+					</ActivityIndicator>
+				)}
+			</Stripe>
+
+			<Stripe color={theme.color.blue} style={{ color: "white" }}>
+				<Stripe.Badge
+					borderColor="white"
+					textColor="white"
+					starColor={theme.color.blue}
+				>
 					Last Sunday
 				</Stripe.Badge>
-				<Stripe.Caption>
-					<Group>
-						<Heading>A Blind Man Sees</Heading>
-						<List style={{ listStyleType: "none" }}>
-							<List.Item icon="/assets/icons/speaker.svg">
-								<Caption>Evans Bissessar</Caption>
-							</List.Item>
-						</List>
-					</Group>
-
-					<Group>
-						<Paragraph>
-							Lorem ipsum dolor sit amet, consectetur adipiscing
-							elit, sed do eiusmod tempor incididunt ut labore et
-							dolore magna aliqua.
-						</Paragraph>
-					</Group>
-
-					<Player />
-				</Stripe.Caption>
-				<Stripe.Figure>
-					<img src="/assets/images/shorts.png" />
-				</Stripe.Figure>
+				{latestEpisode ? (
+					<React.Fragment>
+						<Stripe.Body>
+							<Group>
+								<Heading style={{ marginBottom: 0 }}>
+									{getXMLProperty(latestEpisode, "title")}
+								</Heading>
+								<Caption>
+									{getXMLProperty(
+										latestEpisode,
+										"itunes:author"
+									)}
+								</Caption>
+							</Group>
+							<Group>
+								<Player
+									inverted
+									src={getXMLAttribute(
+										latestEpisode,
+										"enclosure",
+										"url"
+									)}
+								/>
+							</Group>
+							<Caption>
+								<a href="/sermons">
+									See other sermons
+									<img
+										style={{ marginLeft: "4px" }}
+										src="/assets/icons/chevron-right.svg"
+									/>
+								</a>
+							</Caption>
+						</Stripe.Body>
+						<Stripe.Figure>
+							<img
+								src={getXMLAttribute(
+									latestEpisode,
+									"itunes:image",
+									"href"
+								)}
+							/>
+						</Stripe.Figure>
+					</React.Fragment>
+				) : (
+					<ActivityIndicator inverted>
+						Loading episode information...
+					</ActivityIndicator>
+				)}
 			</Stripe>
 			<Stripe
 				color={theme.color.purple}
-				style={{ marginBottom: "500px" }}
+				style={{ marginBottom: "100px" }}
 			>
 				<Stripe.Badge
 					borderColor="white"

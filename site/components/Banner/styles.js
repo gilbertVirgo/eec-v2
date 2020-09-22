@@ -3,8 +3,15 @@ import styled from "styled-components";
 import theme from "../../theme";
 
 export const Wrapper = styled.div`
+	overflow-x: hidden;
+	position: relative;
+	z-index: 1;
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
 	background-image: url(${({ src }) => src});
 	background-size: cover;
+	width: 100%;
 	${theme.map(
 		{
 			xs: 425,
@@ -23,6 +30,27 @@ export const Wrapper = styled.div`
 	padding: 75px 0;
 `;
 
+export const Frame = styled.div`
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: -1;
+
+	/* parallax */
+	background-attachment: fixed;
+
+	background-image: url(${({ src }) => src});
+	background-size: cover;
+	background-position: center;
+	will-change: transform;
+	transition: transform 1s;
+	transform: ${({ delta }) => {
+		if (delta < 0) return `translateX(-100%)`;
+		if (delta > 0) return `translateX(100%)`;
+		return `translateX(0)`;
+	}};
+`;
+
 export const Body = styled.div`
 	color: white;
 	grid-column: 1 / -1;
@@ -30,7 +58,7 @@ export const Body = styled.div`
 		${({ center }) => (center ? `grid-column: 4 / -4` : `grid-column: 1 / 7;`)}
 	`}
 	${theme.breakpoint("lg")`
-		${({ center }) => (center ? `grid-column: 5 / -5` : `grid-column: 2 / 7;`)}
+		${({ center }) => (center ? `grid-column: 5 / -5` : `grid-column: 2 / 6;`)}
 	`}
 `;
 
@@ -38,5 +66,30 @@ export const BadgeWrapper = styled(Badge)`
 	grid-column: 1 / -1;
 	${theme.breakpoint("sm")`grid-column: 2 / -2`}
 	${theme.breakpoint("md")`grid-column: 4 / -4`}
-	${theme.breakpoint("lg")`grid-column: 5 / -5`}
+	${theme.breakpoint(
+		"lg"
+	)`grid-column: 5 / -5`}
+`;
+
+export const DotWrapper = styled.div`
+	position: relative;
+	z-index: 100;
+	grid-column: 1 / -1;
+	height: 50px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+`;
+
+export const Dot = styled.div`
+	border-radius: 8px;
+	width: 8px;
+	height: 8px;
+	margin: 0 ${theme.gutter}px;
+	background-color: white;
+	will-change: opacity;
+	transition: opacity 0.3s;
+	opacity: ${({ active }) => (active ? "1" : "0.5")};
+	cursor: pointer;
 `;

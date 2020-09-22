@@ -3,7 +3,12 @@ import { Container, Grid } from "..";
 
 import React from "react";
 
-export const Banner = ({ children, src, gridProps, ...props }) => {
+export const Banner = ({
+	children,
+	src,
+	gridProps,
+	...props
+}) => {
 	return (
 		<Wrapper src={src} {...props}>
 			<Container>

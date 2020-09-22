@@ -1,3 +1,4 @@
-import {Banner} from './Banner';
+import { Banner } from "./Banner";
+import { Carousel } from "./Carousel";
 
-export default Banner;
+export { Banner, Carousel };

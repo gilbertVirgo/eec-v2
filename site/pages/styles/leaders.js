@@ -11,16 +11,19 @@ export const BadgeWrapper = styled.div`
         margin-top: 275px
     `}
 	${theme.breakpoint("lg")`grid-column: 1 / 4`}
-	${theme.breakpoint("xl")`grid-column: 2 / 5`}
+	${theme.breakpoint(
+		"xl"
+	)`grid-column: 2 / 5`}
 `;
 
 export const ImageWrapper = styled.div`
 	grid-row: 1;
 	z-index: 0;
+	transform-origin: 0 50%;
 
 	position: absolute;
 	transform: translateX(50%);
-	left: -50vw;
+	left: -${theme.gutter}px;
 	top: 0;
 	width: 100%;
 	max-width: 400px;
@@ -28,6 +31,27 @@ export const ImageWrapper = styled.div`
 	img {
 		display: block;
 		width: 100%;
+
+		/* -webkit-mask-image: -webkit-gradient(
+			linear,
+			left top,
+			left bottom,
+			from(rgba(0, 0, 0, 1)),
+			to(rgba(0, 0, 0, 0))
+		); */
+		mask-image: linear-gradient(
+			to bottom,
+			rgba(0, 0, 0, 1) 75%,
+			rgba(0, 0, 0, 0) 100%
+		);
+
+		${theme.breakpoint("lg")`
+			mask-image: linear-gradient(
+				-190deg,
+				rgba(0, 0, 0, 1) 55%,
+				rgba(0, 0, 0, 0) 80%
+			);
+		`}
 	}
 
 	${theme.breakpoint("md")`
@@ -38,10 +62,13 @@ export const ImageWrapper = styled.div`
         grid-column: 1 / 8;
     `}
 
-	${theme.breakpoint("lg")`grid-column: 1 / 6;`}
+	${theme.breakpoint("lg")`margin-top: -100px; grid-column: 1 / 6;
+	`}
 `;
 
 export const Gradient = styled.div`
+	display: none;
+
 	position: absolute;
 	left: 0;
 	top: 0;
@@ -70,6 +97,7 @@ export const Columns = styled.div`
     `}
 
 	${theme.breakpoint("lg")`
+		margin-top: -75px;
 		max-height: none;
 		column-count: 2;
 	`}

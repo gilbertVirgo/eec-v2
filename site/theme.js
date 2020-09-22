@@ -17,6 +17,7 @@ export default {
 		orange: "#A8614B",
 		purple: "#6F3B51",
 		grey: "#463B40",
+		light: "#E5E4DA",
 	},
 	font: {
 		family: {

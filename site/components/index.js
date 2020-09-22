@@ -2,15 +2,17 @@ import styled from "styled-components";
 import theme from "../theme";
 
 export const Container = styled.div.attrs({ className: "container" })`
-    max-width: 480px;
-    width: 100%;
-    padding: ${theme.gutter}px;
-    box-sizing: border-box;
+	max-width: 480px;
+	width: 100%;
+	padding: ${theme.gutter}px;
+	box-sizing: border-box;
 	margin: 45px auto;
 
-    ${theme.breakpoint("md")`max-width: 720px; margin: 75px auto;`}
-    ${theme.breakpoint("lg")`max-width: 1024px;`}
-    ${theme.breakpoint("xl")`max-width: 1280px;`}
+	${theme.breakpoint("md")`max-width: 720px; margin: 75px auto;`}
+	${theme.breakpoint("lg")`max-width: 1024px;`}
+    ${theme.breakpoint(
+		"xl"
+	)`max-width: 1280px;`}
 `;
 
 export const Grid = styled.div`
@@ -38,7 +40,7 @@ export const Heading = styled.h3`
 	font-family: ${theme.font.family.body};
 	font-weight: lighter;
 	font-size: 32px;
-	margin: 0 0 5px;
+	margin: 0 0 ${theme.gutter}px;
 `;
 
 export const Subheading = styled.h4`
@@ -58,4 +60,15 @@ export const Paragraph = styled.p`
 	font-size: 16px;
 	line-height: 21px;
 	margin: 0 0 5px;
+`;
+
+export const Section = styled.section`
+	margin-bottom: ${theme.gutter}px;
+
+	${({ border }) =>
+		border &&
+		`
+		padding-bottom: ${theme.gutter}px;
+	border-bottom: 1px solid ${theme.color.grey}40;
+	`}
 `;

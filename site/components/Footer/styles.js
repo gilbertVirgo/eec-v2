@@ -2,7 +2,7 @@ import styled from "styled-components";
 import theme from "../../theme";
 
 export const Wrapper = styled.div`
-	height: 450px;
+	height: 550px;
 	overflow: hidden;
 	padding-top: 20vw;
 	color: white;

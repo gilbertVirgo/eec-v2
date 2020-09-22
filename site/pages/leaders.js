@@ -7,29 +7,44 @@ import {
 import { Caption, Paragraph } from "../components";
 
 import Badge from "../components/Badge";
-import Banner from "../components/Banner";
+import { Banner } from "../components/Banner";
 import Layout from "../components/Layout";
 import Stripe from "../components/Stripe";
+import lax from "lax.js";
 import leaders from "./data/leaders";
-import styled from "styled-components";
 import theme from "../theme";
 
 export default function Leaders() {
+	const [running, setRunning] = React.useState(true);
+
+	React.useEffect(() => {
+		lax.setup(); // init
+
+		const updateLax = () => {
+			lax.update(window.scrollY);
+			if (running) window.requestAnimationFrame(updateLax);
+		};
+
+		window.requestAnimationFrame(updateLax);
+
+		return () => setRunning(false);
+	}, []);
+
 	return (
 		<Layout.Default title="Leaders" style={{ color: "white" }}>
 			<Banner src="/assets/images/banner.png">
-				<Badge
+				<Banner.Badge
 					borderColor={theme.color.mustard}
 					starColor="white"
 					textColor="white"
 				>
 					Leaders
-				</Badge>
+				</Banner.Badge>
 			</Banner>
 			{leaders.map(({ name, color, image, content }, index) => (
 				<Stripe
+					sticky
 					color={color}
-					style={{ overflow: "hidden" }}
 					key={`leader-stripe-${index}`}
 					expands
 				>
@@ -42,7 +57,11 @@ export default function Leaders() {
 							{name}
 						</Badge>
 					</BadgeWrapper>
-					<ImageWrapper>
+					<ImageWrapper
+						className="lax"
+						data-lax-scale="vh 0.7, -vh 1"
+						data-lax-anchor="self"
+					>
 						<img src={image} />
 						<Gradient color={color} />
 					</ImageWrapper>

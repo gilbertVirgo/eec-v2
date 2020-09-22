@@ -11,7 +11,7 @@ export const Footer = () => {
 		<Wrapper>
 			<Stripe
 				color={theme.color.grey}
-				style={{ height: "1000px" }}
+				bgProps={{ style: { height: "1000px" } }}
 				gridProps={{ style: { rowGap: `8px` } }}
 			>
 				{contact.map(({ icon, content, link }) => (
