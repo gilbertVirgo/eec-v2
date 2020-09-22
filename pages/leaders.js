@@ -1,9 +1,4 @@
-import {
-	BadgeWrapper,
-	Columns,
-	Gradient,
-	ImageWrapper,
-} from "./styles/leaders";
+import { BadgeWrapper, Columns, Gradient, ImageWrapper } from "../leaders";
 import { Caption, Paragraph } from "../components";
 
 import Badge from "../components/Badge";
@@ -11,7 +6,7 @@ import { Banner } from "../components/Banner";
 import Layout from "../components/Layout";
 import Stripe from "../components/Stripe";
 import lax from "lax.js";
-import leaders from "./data/leaders";
+import leaders from "../data/leaders";
 import theme from "../theme";
 
 export default function Leaders() {

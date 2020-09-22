@@ -12,7 +12,7 @@ import { Banner } from "../components/Banner";
 import Card from "../components/Card";
 import Layout from "../components/Layout";
 import Stripe from "../components/Stripe";
-import { fetchTeams } from "./scripts/teams";
+import { fetchTeams } from "../scripts/teams";
 import lax from "lax.js";
 import theme from "../theme";
 

@@ -10,7 +10,7 @@ import {
 import { Banner } from "../components/Banner";
 import { default as DefaultStripe } from "../components/Stripe";
 import Layout from "../components/Layout";
-import about from "./data/about";
+import about from "../data/about";
 import styled from "styled-components";
 import theme from "../theme";
 

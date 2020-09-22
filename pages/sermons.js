@@ -8,12 +8,12 @@ import {
 	Section,
 	Subheading,
 } from "../components";
-import { RangeWrapper, Search, Sidebar } from "./styles/sermons";
+import { RangeWrapper, Search, Sidebar } from "../sermons";
 import {
 	fetchPodcastEpisodes,
 	getXMLAttribute,
 	getXMLProperty,
-} from "./scripts/sermons";
+} from "../scripts/sermons";
 
 import { ActivityIndicator } from "../components/ActivityIndicator/ActivityIndicator";
 import { Banner } from "../components/Banner";

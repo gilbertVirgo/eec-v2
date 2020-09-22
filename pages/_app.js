@@ -1,5 +1,5 @@
-import "./styles/react-audio-player-custom.css";
-import "./styles/input-range-custom.css";
+import "../styles/react-audio-player-custom.css";
+import "../styles/input-range-custom.css";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 import App from "next/app";
