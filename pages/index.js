@@ -52,7 +52,8 @@ export default function Home() {
 				<Banner.Body center>
 					{/* Needs to be stuttered */}
 					<List
-						icon="/assets/icons/exit.svg"
+						icon="/assets/icons/star.svg"
+						stagger
 						style={{
 							marginBottom: "75px",
 						}}
