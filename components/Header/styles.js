@@ -39,7 +39,7 @@ export const Bar = styled.div`
 `;
 
 export const Logo = styled.a.attrs({ href: "/" })`
-	background-size: 80%;
+	background-size: 100%;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-image: url(/assets/images/crown-logo.png);
