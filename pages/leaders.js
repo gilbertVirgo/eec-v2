@@ -16,9 +16,12 @@ import theme from "../theme";
 
 export default function Leaders() {
 	const [running, setRunning] = React.useState(true);
+	const [windowHeight, setWindowHeight] = React.useState();
 
 	React.useEffect(() => {
 		lax.setup(); // init
+
+		setWindowHeight(window.innerHeight);
 
 		const updateLax = () => {
 			lax.update(window.scrollY);
@@ -43,7 +46,7 @@ export default function Leaders() {
 			</Banner>
 			{leaders.map(({ name, color, image, content }, index) => (
 				<Stripe
-					sticky
+					sticky={windowHeight > 600}
 					color={color}
 					key={`leader-stripe-${index}`}
 					expands

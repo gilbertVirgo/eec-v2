@@ -33,7 +33,7 @@ export const Wrapper = styled.div.attrs({
 			sticky &&
 			`
 			position: sticky;
-			top: calc(50vh - 25%);
+			top: calc(50vh - 300px);
 			margin-bottom: 50vh;
 		`}
 	`}
