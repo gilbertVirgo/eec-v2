@@ -1,12 +1,39 @@
-import { Container, Grid } from "..";
+import { Container, Grid as DefaultGrid } from "..";
 
 import styled from "styled-components";
 import theme from "../../theme";
 
 const barHeight = 100;
 
+export const BannerText = styled.img.attrs({
+	src: "/assets/images/banner-text.png",
+})`
+	display: block;
+	height: 30px;
+	grid-column: 1 / 6;
+	margin-left: ${theme.gutter}px;
+
+	${theme.breakpoint("xs", "lg")`
+		display: none;
+	`}
+`;
+
 export const Outer = styled.div`
 	padding-top: ${barHeight}px;
+`;
+
+export const Grid = styled(DefaultGrid)`
+	row-gap: 0;
+	width: 100%;
+
+	${theme.breakpoint("lg")`
+	align-items: center;
+	`}
+
+	${theme.breakpoint("xs", "lg")`
+		padding: 0 ${theme.gutter}px;
+		box-sizing: border-box;
+	`}
 `;
 
 export const Wrapper = styled.nav`
@@ -17,7 +44,6 @@ export const Wrapper = styled.nav`
 	z-index: 10;
 	${theme.shadow};
 
-	/* padding-top: ${barHeight}px; */
 	box-sizing: border-box;
 
 	${theme.breakpoint("lg")`
@@ -43,24 +69,33 @@ export const Logo = styled.a.attrs({ href: "/" })`
 	background-position: center;
 	background-repeat: no-repeat;
 	background-image: url(/assets/images/crown-logo.png);
-	position: absolute;
-	top: 0;
-	right: 0;
 	height: ${barHeight}px;
 	width: ${barHeight * 1.21}px;
 	z-index: 1000;
+	margin-left: auto;
+	${theme.breakpoint("xs", "lg")`
+		position: fixed;
+		top: 0; right: 0;
+	`};
 `;
 
-export const LinkWrapper = styled(Container)`
+export const LinkWrapper = styled.div`
 	${theme.breakpoint("xs", "lg")`
 	background-color: white;
-	${({ active }) => !active && `display: none`};
-	max-width: none !important;
-	margin: 0 !important;
+	${({ active }) =>
+		!active &&
+		`
+		.nav-link {
+			display: none
+		}`};
 	`}
 	position: relative;
 	z-index: 11;
-	margin: 20px auto 0 !important;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 `;
 
 export const Control = styled.div`

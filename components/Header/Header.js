@@ -1,10 +1,18 @@
-import { Bar, Control, LinkWrapper, Logo, Outer, Wrapper } from "./styles";
+import {
+	BannerText,
+	Bar,
+	Control,
+	Grid,
+	LinkWrapper,
+	Logo,
+	Outer,
+	Wrapper,
+} from "./styles";
 
-import { Grid } from "..";
 import { Link } from "./Link";
 import React from "react";
 
-export const Header = ({ children }) => {
+export const Header = () => {
 	const [active, setActive] = React.useState(false);
 
 	const handleToggleActive = () => setActive(!active);
@@ -14,15 +22,17 @@ export const Header = ({ children }) => {
 			<Wrapper active={active}>
 				<Bar />
 				<Control active={active} onClick={handleToggleActive} />
-				<Logo />
+
 				<LinkWrapper active={active}>
-					<Grid style={{ rowGap: 0 }}>
+					<Grid style={{ rowGap: 0, alignItems: "center" }}>
+						<BannerText />
 						<Link to="/events">What's on</Link>
 						<Link to="/leaders">Leaders</Link>
 						<Link to="/teams">Teams</Link>
 						<Link to="/about">About</Link>
 						<Link to="/sermons">Sermons</Link>
 						<Link to="/contact">Contact</Link>
+						<Logo />
 					</Grid>
 				</LinkWrapper>
 			</Wrapper>
