@@ -37,7 +37,7 @@ export default function Leaders() {
 		<Layout.Default title="Leaders" style={{ color: "white" }}>
 			<Banner src="/assets/images/banner.png">
 				<Banner.Badge
-					borderColor={theme.color.mustard}
+					borderColor={leaders[0].color}
 					starColor="white"
 					textColor="white"
 				>

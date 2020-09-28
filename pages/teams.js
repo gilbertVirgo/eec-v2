@@ -45,7 +45,7 @@ export default function Teams() {
 		<Layout.Default title="Teams">
 			<Banner src="/assets/images/teams.png">
 				<Banner.Badge
-					borderColor={theme.color.orange}
+					borderColor={theme.color.purple}
 					starColor="white"
 					textColor="white"
 				>
@@ -54,11 +54,11 @@ export default function Teams() {
 			</Banner>
 			{teams ? (
 				teams.map(({ title, description, helper }) => (
-					<Stripe color={theme.color.blue}>
+					<Stripe color={theme.color.purple}>
 						<Stripe.Badge
 							borderColor="white"
 							textColor="white"
-							starColor={theme.color.blue}
+							starColor={theme.color.purple}
 						>
 							{title}
 						</Stripe.Badge>
