@@ -27,7 +27,7 @@ export const Wrapper = styled.div`
 	align-items: center;
 
 	box-sizing: border-box;
-	padding: 75px 0;
+	padding: ${theme.gutter * 3}px 0;
 `;
 
 export const Frame = styled.div`
@@ -66,9 +66,7 @@ export const BadgeWrapper = styled(Badge)`
 	grid-column: 1 / -1;
 	${theme.breakpoint("sm")`grid-column: 2 / -2`}
 	${theme.breakpoint("md")`grid-column: 4 / -4`}
-	${theme.breakpoint(
-		"lg"
-	)`grid-column: 5 / -5`}
+	${theme.breakpoint("lg")`grid-column: 5 / -5`}
 `;
 
 export const DotWrapper = styled.div`
