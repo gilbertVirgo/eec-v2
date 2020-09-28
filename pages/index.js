@@ -12,6 +12,8 @@ import List from "../components/List";
 import Pin from "../public/assets/icons/pin.svg";
 import Player from "../components/Player";
 import Stripe from "../components/Stripe";
+import { Tagline } from "../styles/index";
+import { animationLength } from "../components/List/styles";
 import { fetchEvents } from "../scripts/events";
 import moment from "moment";
 import theme from "../theme";
@@ -55,7 +57,7 @@ export default function Home() {
 						icon="/assets/icons/star.svg"
 						stagger
 						style={{
-							marginBottom: "75px",
+							marginBottom: `${theme.gutter * 3}px`,
 						}}
 					>
 						<List.Item>
@@ -77,14 +79,9 @@ export default function Home() {
 							<Paragraph>who or what you vote for</Paragraph>
 						</List.Item>
 					</List>
-					<img
-						src="/assets/icons/tagline.svg"
-						width="100%"
-						style={{
-							display: "block",
-							marginBottom: `${theme.gutter}px`,
-						}}
-					/>
+
+					{/* NONE OF US ARE PERFECT */}
+					<Tagline animationLength={animationLength} />
 					<Paragraph
 						style={{
 							textAlign: "center",

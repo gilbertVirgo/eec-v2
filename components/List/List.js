@@ -9,7 +9,9 @@ export const List = ({ children, stagger, ...props }) => {
 				? children.map((child, index) =>
 						React.cloneElement(child, {
 							style: {
-								animationDelay: `${index * animationLength}ms`,
+								animationDelay: `${
+									index * 1.5 * animationLength
+								}ms`,
 							},
 						})
 				  )
