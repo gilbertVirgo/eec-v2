@@ -5,13 +5,17 @@ import theme from "../../theme";
 
 const barHeight = 100;
 
-export const BannerText = styled.img.attrs({
-	src: "/assets/images/banner-text.png",
+export const BannerText = styled.a.attrs({
+	href: "/",
 })`
-	display: block;
+	width: 231px;
 	height: 30px;
+	display: block;
 	grid-column: 1 / 6;
 	margin-left: ${theme.gutter}px;
+	background-image: url("/assets/images/banner-text.png");
+	background-position: center;
+	background-size: cover;
 
 	${theme.breakpoint("xs", "lg")`
 		display: none;
