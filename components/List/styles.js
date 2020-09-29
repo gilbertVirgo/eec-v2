@@ -4,18 +4,22 @@ import theme from "../../theme";
 
 export const animationLength = 300;
 
-const fadeIn = keyframes`
+export const fadeIn = keyframes`
 	from {
 		opacity: 0;
-		transform: translateX(-50px);
+		transform: scale(0.5);
+	}
+	75% {
+		transform: scale(1.02);
 	}
 	to {
 		opacity: 1;
-		transform: translateX(0);
+		transform: scale(1);
 	}
 `;
 
 export const Item = styled.li`
+	transform-origin: left;
 	font-weight: bold;
 	padding-left: ${theme.gutter * 2}px;
 	background-repeat: no-repeat;
