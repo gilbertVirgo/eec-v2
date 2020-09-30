@@ -39,9 +39,9 @@ export default function Home() {
 				gridProps={{ style: { rowGap: theme.gutter + "px" } }}
 				frames={[
 					// "/assets/images/church.jpg",
-					"/assets/images/sermons.jpg",
-					"/assets/images/contact.png",
-					"/assets/images/teams.png",
+					"/assets/images/carousel-1.jpg",
+					"/assets/images/carousel-2.jpg",
+					"/assets/images/carousel-3.jpg",
 				]}
 			>
 				<Banner.Badge
