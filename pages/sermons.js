@@ -60,7 +60,7 @@ export default function Sermons() {
 
 	return (
 		<Layout.Default title="Sermons">
-			<Banner src="/assets/images/sermons.jpg">
+			<Banner src="/assets/images/sermons-banner.jpg">
 				<Banner.Badge
 					borderColor={theme.color.blue}
 					starColor="white"
