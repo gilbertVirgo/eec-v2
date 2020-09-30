@@ -1,4 +1,5 @@
 import Badge from "../Badge";
+import { Container as DefaultContainer } from "..";
 import styled from "styled-components";
 import theme from "../../theme";
 
@@ -6,7 +7,7 @@ export const Wrapper = styled.div`
 	overflow-x: hidden;
 	position: relative;
 	z-index: 1;
-	background-attachment: fixed;
+	/* background-attachment: fixed; */
 	background-position: center;
 	background-repeat: no-repeat;
 	background-image: url(${({ src }) => src});
@@ -30,6 +31,20 @@ export const Wrapper = styled.div`
 	padding: ${theme.gutter * 3}px 0;
 `;
 
+export const Container = styled(DefaultContainer)`
+	position: relative;
+	z-index: 1;
+`;
+
+export const Overlay = styled.div`
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(50, 40, 0, 0.45);
+`;
+
 export const Frame = styled.div`
 	width: 100%;
 	height: 100%;
@@ -37,7 +52,7 @@ export const Frame = styled.div`
 	z-index: -1;
 
 	/* parallax */
-	background-attachment: fixed;
+	/* background-attachment: fixed; */
 
 	background-image: url(${({ src }) => src});
 	background-size: cover;

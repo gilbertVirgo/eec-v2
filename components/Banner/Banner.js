@@ -1,16 +1,12 @@
-import { BadgeWrapper, Body, Wrapper } from "./styles";
-import { Container, Grid } from "..";
+import { BadgeWrapper, Body, Container, Overlay, Wrapper } from "./styles";
 
+import { Grid } from "..";
 import React from "react";
 
-export const Banner = ({
-	children,
-	src,
-	gridProps,
-	...props
-}) => {
+export const Banner = ({ children, src, gridProps, ...props }) => {
 	return (
 		<Wrapper src={src} {...props}>
+			<Overlay />
 			<Container>
 				<Grid {...gridProps}>{children}</Grid>
 			</Container>

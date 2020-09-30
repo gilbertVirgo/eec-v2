@@ -1,6 +1,6 @@
-import { Container, Grid } from "..";
-import { Dot, DotWrapper, Frame, Wrapper } from "./styles";
+import { Container, Dot, DotWrapper, Frame, Overlay, Wrapper } from "./styles";
 
+import { Grid } from "..";
 import React from "react";
 
 const intervalLength = 3000;
@@ -30,6 +30,7 @@ export const Carousel = ({ children, gridProps, frames, ...props }) => {
 				return <Frame src={src} delta={index - activeIndex} />;
 			})}
 
+			<Overlay />
 			<Container>
 				<Grid {...gridProps}>
 					{children}
