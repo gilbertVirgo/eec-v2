@@ -15,14 +15,16 @@ export function Stripe({
 	children,
 	color,
 	bgProps,
+	containerProps,
 	gridProps,
 	expands,
+	sticky,
 	...props
 }) {
 	return (
-		<Wrapper {...props}>
+		<Wrapper sticky={sticky} {...props}>
 			<Background {...bgProps} expands={expands} color={color} />
-			<Container>
+			<Container {...containerProps}>
 				<Grid {...gridProps}>{children}</Grid>
 			</Container>
 		</Wrapper>

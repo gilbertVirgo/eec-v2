@@ -26,15 +26,20 @@ export const Wrapper = styled.div.attrs({
 			: theme.map(
 					{ xs: 150, sm: 175, md: 200, lg: 225, xl: 250 },
 					(marginBottom) => `margin-bottom: ${marginBottom}px;`
-			  )}
-
+			  )}  
+			  
 	${theme.breakpoint("lg")`
 		${({ sticky }) =>
 			sticky &&
 			`
 			position: sticky;
 			top: calc(50vh - 300px);
-			margin-bottom: 50vh;
+
+			margin: 0;
+
+			&:not(:first-child) {
+				// margin-top: 50vh;
+			}
 		`}
 	`}
 `;
@@ -64,9 +69,7 @@ export const BadgeWrapper = styled.div`
 
 	${theme.breakpoint("sm")`grid-column: 2 / -2;`}
 	${theme.breakpoint("md")`grid-column: 4 / -4`}
-	${theme.breakpoint(
-		"lg"
-	)`grid-column: 5 / -5`}
+	${theme.breakpoint("lg")`grid-column: 5 / -5`}
 `;
 
 export const Caption = styled.div`
