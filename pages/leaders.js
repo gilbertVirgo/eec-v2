@@ -11,23 +11,17 @@ import Badge from "../components/Badge";
 import { Banner } from "../components/Banner";
 import Layout from "../components/Layout";
 import Stripe from "../components/Stripe";
-import lax from "lax.js";
+import initLax from "../scripts/initLax";
 import leaders from "../data/leaders";
-import theme from "../theme";
 
 export default function Leaders() {
 	const [running, setRunning] = React.useState(true);
 	const [windowHeight, setWindowHeight] = React.useState();
 
 	React.useEffect(() => {
-		lax.setup(); // init
+		initLax();
 
 		setWindowHeight(window.innerHeight);
-
-		const updateLax = () => {
-			lax.update(window.scrollY);
-			if (running) window.requestAnimationFrame(updateLax);
-		};
 
 		window.requestAnimationFrame(updateLax);
 

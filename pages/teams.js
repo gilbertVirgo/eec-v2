@@ -13,7 +13,7 @@ import Card from "../components/Card";
 import Layout from "../components/Layout";
 import Stripe from "../components/Stripe";
 import { fetchTeams } from "../scripts/teams";
-import lax from "lax.js";
+import initLax from "../scripts/initLax";
 import theme from "../theme";
 
 export default function Teams() {
@@ -28,14 +28,8 @@ export default function Teams() {
 
 			setTeams(teams);
 
-			lax.setup(); // init
-
-			const updateLax = () => {
-				lax.update(window.scrollY);
-				if (running) window.requestAnimationFrame(updateLax);
-			};
-
-			window.requestAnimationFrame(updateLax);
+			// Initialise lax *after* teams have been fetched
+			initLax();
 		})();
 
 		return () => setRunning(false);
