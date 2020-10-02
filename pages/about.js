@@ -56,8 +56,21 @@ export default function About() {
 				<Stripe.Body style={{ color: "white" }}>
 					<Title>What sort of church are you?</Title>
 					<Paragraph>
-						We are part of the Newfrontiers and New Ground family of
-						churches. <br />
+						We are part of the{" "}
+						<a
+							style={{ fontWeight: "bold" }}
+							href="https://newfrontiers.org"
+						>
+							Newfrontiers
+						</a>{" "}
+						and{" "}
+						<a
+							style={{ fontWeight: "bold" }}
+							href="https://newgroundchurches.org"
+						>
+							New Ground
+						</a>{" "}
+						family of churches. <br />
 						<br />
 						We believe in the Bible. All of it.
 						<br />

@@ -30,6 +30,11 @@ export const Footer = () => {
 					<Paragraph>Privacy Policy</Paragraph>
 				</Row>
 				<Row>
+					<img
+						src="/assets/icons/newground.svg"
+						width="80px"
+						style={{ marginRight: theme.gutter * 2 + "px" }}
+					/>
 					<img src="/assets/icons/newfrontiers.svg" width="120px" />
 				</Row>
 			</Stripe>
