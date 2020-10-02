@@ -11,6 +11,7 @@ import { Banner } from "../components/Banner";
 import { default as DefaultStripe } from "../components/Stripe";
 import Layout from "../components/Layout";
 import about from "../data/about";
+import initLax from "../scripts/initLax";
 import styled from "styled-components";
 import theme from "../theme";
 
@@ -30,6 +31,10 @@ const Card = styled.div`
 `;
 
 export default function About() {
+	React.useEffect(() => {
+		initLax();
+	}, []);
+
 	return (
 		<Layout.Default title="About">
 			<Banner src="/assets/images/banner.png" style={{ color: "white" }}>
@@ -91,7 +96,13 @@ export default function About() {
 					<img src="/assets/images/church.jpg" />
 				</Stripe.Figure>
 			</Stripe>
-			<Container>
+			<Container
+				className="lax"
+				data-lax-translate-x="vh -100px, -vh 100px"
+				data-lax-opacity="vh 0.25, 200 1"
+				// data-lax-scale="vh 0.75, -vh 1.25"
+				data-lax-anchor="self"
+			>
 				<Heading>Here are some do's</Heading>
 				<br />
 				<br />
@@ -107,7 +118,13 @@ export default function About() {
 					))}
 				</Grid>
 			</Container>
-			<Container>
+			<Container
+				className="lax"
+				data-lax-translate-x="vh 100px, -vh -100px"
+				data-lax-opacity="vh 0.25, 200 1"
+				// data-lax-scale="vh 0.75, -vh 1.25"
+				data-lax-anchor="self"
+			>
 				<Heading>Here are some dont's</Heading>
 				<br />
 				<br />
