@@ -101,7 +101,7 @@ export default function About() {
 				<Grid>
 					{about.donts.map(({ title, body }, index) => (
 						<Card
-							key={`about-item-${index + dos.length}`}
+							key={`about-item-${index + about.dos.length}`}
 							column={(index % 3) * 4 + 1}
 						>
 							<Caption>{title}</Caption>
