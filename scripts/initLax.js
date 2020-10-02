@@ -5,7 +5,7 @@ export default () => {
 
 	const updateLax = () => {
 		lax.update(window.scrollY);
-		if (running) window.requestAnimationFrame(updateLax);
+		window.requestAnimationFrame(updateLax);
 	};
 
 	window.requestAnimationFrame(updateLax);
