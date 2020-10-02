@@ -18,7 +18,6 @@ import theme from "../theme";
 
 export default function Teams() {
 	const [teams, setTeams] = React.useState();
-	const [running, setRunning] = React.useState(true);
 
 	React.useEffect(() => {
 		(async function () {
@@ -31,8 +30,6 @@ export default function Teams() {
 			// Initialise lax *after* teams have been fetched
 			initLax();
 		})();
-
-		return () => setRunning(false);
 	}, []);
 
 	return (

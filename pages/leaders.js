@@ -15,17 +15,12 @@ import initLax from "../scripts/initLax";
 import leaders from "../data/leaders";
 
 export default function Leaders() {
-	const [running, setRunning] = React.useState(true);
 	const [windowHeight, setWindowHeight] = React.useState();
 
 	React.useEffect(() => {
 		initLax();
 
 		setWindowHeight(window.innerHeight);
-
-		window.requestAnimationFrame(updateLax);
-
-		return () => setRunning(false);
 	}, []);
 
 	return (
