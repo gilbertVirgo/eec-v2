@@ -4,7 +4,6 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 import App from "next/app";
 import React from "react";
-import lax from "lax.js";
 
 class MyApp extends App {
 	render() {
