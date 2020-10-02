@@ -6,6 +6,7 @@ import {
 	Heading,
 	Paragraph,
 } from "../components";
+import { fetchEvents, fetchRegularEvents } from "../scripts/events";
 
 import { ActivityIndicator } from "../components/ActivityIndicator/ActivityIndicator";
 import { Banner } from "../components/Banner";
@@ -13,25 +14,27 @@ import Card from "../components/Card";
 import Layout from "../components/Layout";
 import List from "../components/List";
 import Stripe from "../components/Stripe";
-import { fetchEvents } from "../scripts/events";
 import moment from "moment";
 import { regular } from "../data/events";
 import theme from "../theme";
 
 export default function Events() {
 	const [events, setEvents] = React.useState();
+	const [regularEvents, setRegularEvents] = React.useState();
 
 	React.useEffect(() => {
 		(async function () {
 			const events = await fetchEvents();
-
 			setEvents(events);
+
+			const regularEvents = await fetchRegularEvents();
+			setRegularEvents(regularEvents);
 		})();
 	}, []);
 
 	return (
 		<Layout.Default title="What's On">
-			<Banner src="/assets/images/banner.png">
+			<Banner src="/assets/images/whats-on.jpg">
 				<Banner.Badge
 					borderColor={theme.color.orange}
 					starColor="white"
@@ -114,15 +117,21 @@ export default function Events() {
 					Regular Events
 				</Heading>
 				<Grid>
-					{regular.map(({ title, description, image }) => (
-						<Card>
-							<Card.Image src={image} />
-							<Card.Body>
-								<Caption>{title}</Caption>
-								<Paragraph>{description}</Paragraph>
-							</Card.Body>
-						</Card>
-					))}
+					{regularEvents ? (
+						regularEvents.map(({ title, description, image }) => (
+							<Card>
+								<Card.Image src={image.url} />
+								<Card.Body>
+									<Caption>{title}</Caption>
+									<Paragraph>{description}</Paragraph>
+								</Card.Body>
+							</Card>
+						))
+					) : (
+						<ActivityIndicator>
+							Loading regular events...
+						</ActivityIndicator>
+					)}
 				</Grid>
 			</Container>
 		</Layout.Default>
