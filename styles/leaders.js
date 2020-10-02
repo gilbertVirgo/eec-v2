@@ -1,6 +1,10 @@
 import styled from "styled-components";
 import theme from "../theme";
 
+export const StripeWrapper = styled.div`
+	position: relative;
+`;
+
 export const BadgeWrapper = styled.div`
 	grid-column: 4 / -1;
 	grid-row: 1;
@@ -11,9 +15,7 @@ export const BadgeWrapper = styled.div`
         margin-top: 275px
     `}
 	${theme.breakpoint("lg")`grid-column: 1 / 4`}
-	${theme.breakpoint(
-		"xl"
-	)`grid-column: 2 / 5`}
+	${theme.breakpoint("xl")`grid-column: 2 / 5`}
 `;
 
 export const ImageWrapper = styled.div`
@@ -82,7 +84,7 @@ export const Gradient = styled.div`
 	${theme.breakpoint("lg")`display: none`}
 `;
 
-export const Columns = styled.div`
+export const Columns = styled.div.attrs({ "data-role": "columns" })`
 	margin-top: 260px;
 	margin-bottom: 40px;
 	position: relative;
@@ -97,8 +99,8 @@ export const Columns = styled.div`
     `}
 
 	${theme.breakpoint("lg")`
-		margin-top: -75px;
-		max-height: none;
+		top: -75px;
+		margin: 0;
 		column-count: 2;
 	`}
 
