@@ -98,9 +98,8 @@ export default function About() {
 			</Stripe>
 			<Container
 				className="lax"
-				data-lax-translate-x="vh -100px, -vh 100px"
+				data-lax-translate-x="vh -100px, 200 0"
 				data-lax-opacity="vh 0.25, 200 1"
-				// data-lax-scale="vh 0.75, -vh 1.25"
 				data-lax-anchor="self"
 			>
 				<Heading>Here are some do's</Heading>
@@ -120,9 +119,8 @@ export default function About() {
 			</Container>
 			<Container
 				className="lax"
-				data-lax-translate-x="vh 100px, -vh -100px"
+				data-lax-translate-x="vh 100px, 200 0"
 				data-lax-opacity="vh 0.25, 200 1"
-				// data-lax-scale="vh 0.75, -vh 1.25"
 				data-lax-anchor="self"
 			>
 				<Heading>Here are some dont's</Heading>

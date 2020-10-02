@@ -8,4 +8,7 @@ a:hover {
     text-decoration: underline;
 }
 
+main {
+    overflow-x: hidden;
+}
 `;
