@@ -1,16 +1,22 @@
 import query from "./query";
 
+const parse = (results) => results.map(({ data }) => data);
+const sort = (results) =>
+	results.sort((a, b) => new Date(a.date) - new Date(b.date));
+
 export const fetchEvents = async () => {
 	let results = await query("event");
 
-	results = results.map(({ data }) => data);
-
-	// Sort in date order
-	results = results.sort((a, b) => new Date(a.date) - new Date(b.date));
-
-	console.log(results);
+	results = parse(results);
+	results = sort(results);
 
 	return results;
 };
 
-export const fetchRegularEvents = async () => {};
+export const fetchRegularEvents = async () => {
+	let results = await query("regular_event");
+
+	results = parse(results);
+
+	return results;
+};
