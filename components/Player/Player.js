@@ -5,9 +5,7 @@ import InputRange from "react-input-range";
 import React from "react";
 
 export const Player = ({ src, inverted, ...props }) => {
-	const [currentTime, setCurrentTime] = React.useState(
-		new Date(0, 0, 0, 0, 0, 0)
-	);
+	const [currentTime, setCurrentTime] = React.useState(0);
 	const [playing, setPlaying] = React.useState(false);
 	const audio = React.useRef(null);
 	const [canPlay, setCanPlay] = React.useState(false);
