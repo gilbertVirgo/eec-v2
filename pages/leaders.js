@@ -3,6 +3,7 @@ import {
 	Columns,
 	Gradient,
 	ImageWrapper,
+	StripeWrapper,
 } from "../styles/leaders";
 import { Caption, Paragraph } from "../components";
 
@@ -44,52 +45,71 @@ export default function Leaders() {
 					Leaders
 				</Banner.Badge>
 			</Banner>
-			{leaders.map(({ name, color, image, content }, index) => (
-				<Stripe
-					sticky={windowHeight > 600}
-					color={color}
-					key={`leader-stripe-${index}`}
-					expands
-				>
-					<BadgeWrapper>
-						<Badge
-							borderColor="white"
-							starColor={color}
-							textColor="white"
-						>
-							{name}
-						</Badge>
-					</BadgeWrapper>
-					<ImageWrapper
-						className="lax"
-						data-lax-scale="vh 0.7, -vh 1"
-						data-lax-anchor="self"
+			<StripeWrapper>
+				{leaders.map(({ name, color, image, content }, index) => (
+					<Stripe
+						sticky={windowHeight > 600}
+						color={color}
+						key={`leader-stripe-${index}`}
+						expands
+						containerProps={{
+							style: {
+								position: "relative",
+							},
+						}}
+						gridProps={{
+							style: {
+								width: "100%",
+								position: "absolute",
+								margin: "0 auto",
+								left: "0",
+								right: "0",
+							},
+						}}
 					>
-						<img src={image} />
-						<Gradient color={color} />
-					</ImageWrapper>
-					<Columns>
-						<div>
-							<Caption>Testimony</Caption>
-							<Paragraph>{content.testimony}</Paragraph>
-						</div>
-						<div>
-							<Caption>
-								Likes and dislikes about east London?
-							</Caption>
-							<Paragraph>{content.london}</Paragraph>
-						</div>
-						<div>
-							<Caption>Family, Kids, Pets?</Caption>
-							<Paragraph>{content.family}</Paragraph>
-						</div>
-						<div>
-							<Caption>What do you do monday to friday?</Caption>
-							<Paragraph>{content.job}</Paragraph>
-						</div>
-					</Columns>
-				</Stripe>
-			))}
+						{/* Basically, the ImageWrapper and Columns are changing the margin which is messing everything up. Perhaps it would be better to make them both position: absolute somehow... */}
+						<BadgeWrapper>
+							<Badge
+								borderColor="white"
+								starColor={color}
+								textColor="white"
+							>
+								{name}
+							</Badge>
+						</BadgeWrapper>
+						<ImageWrapper
+							className="lax"
+							data-lax-scale="vh 0.7, -vh 1"
+							data-lax-anchor="self"
+						>
+							<img src={image} />
+							<Gradient color={color} />
+						</ImageWrapper>
+						<Columns>
+							<div>
+								<Caption>Testimony</Caption>
+								<Paragraph>{content.testimony}</Paragraph>
+							</div>
+							<div>
+								<Caption>
+									Likes and dislikes about east London?
+								</Caption>
+								<Paragraph>{content.london}</Paragraph>
+							</div>
+							<div>
+								<Caption>Family, Kids, Pets?</Caption>
+								<Paragraph>{content.family}</Paragraph>
+							</div>
+							<div>
+								<Caption>
+									What do you do monday to friday?
+								</Caption>
+								<Paragraph>{content.job}</Paragraph>
+							</div>
+						</Columns>
+					</Stripe>
+				))}
+			</StripeWrapper>
 		</Layout.Default>
 	);
 }
