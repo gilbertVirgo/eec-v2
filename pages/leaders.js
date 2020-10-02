@@ -50,7 +50,7 @@ export default function Leaders() {
 					<Stripe
 						sticky={windowHeight > 600}
 						color={color}
-						key={`leader-stripe-${index}`}
+						key={`leaders-stripe-${index}`}
 						expands
 						containerProps={{
 							style: {

@@ -13,6 +13,7 @@ export const List = ({ children, stagger, ...props }) => {
 									index * 1.5 * animationLength
 								}ms`,
 							},
+							key: `list-item-${index}`,
 						})
 				  )
 				: children}

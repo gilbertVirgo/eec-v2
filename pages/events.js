@@ -97,8 +97,8 @@ export default function Events() {
 						<Grid>
 							{events
 								.slice(1)
-								.map(({ title, description, image }) => (
-									<Card>
+								.map(({ title, description, image }, index) => (
+									<Card key={`events-card-${index}`}>
 										<Card.Image src={image.url} />
 										<Card.Body>
 											<Caption>{title}</Caption>
@@ -118,15 +118,17 @@ export default function Events() {
 				</Heading>
 				<Grid>
 					{regularEvents ? (
-						regularEvents.map(({ title, description, image }) => (
-							<Card>
-								<Card.Image src={image.url} />
-								<Card.Body>
-									<Caption>{title}</Caption>
-									<Paragraph>{description}</Paragraph>
-								</Card.Body>
-							</Card>
-						))
+						regularEvents.map(
+							({ title, description, image }, index) => (
+								<Card key={`regevents-card-${index}`}>
+									<Card.Image src={image.url} />
+									<Card.Body>
+										<Caption>{title}</Caption>
+										<Paragraph>{description}</Paragraph>
+									</Card.Body>
+								</Card>
+							)
+						)
 					) : (
 						<ActivityIndicator>
 							Loading regular events...

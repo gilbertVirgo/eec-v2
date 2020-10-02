@@ -179,8 +179,10 @@ export default function Sermons() {
 								"Joseph Series",
 								"Matthew Series",
 								"Money Series",
-							].map((name) => (
-								<Paragraph>{name}</Paragraph>
+							].map((name, index) => (
+								<Paragraph key={`series-title-${index}`}>
+									{name}
+								</Paragraph>
 							))}
 						</Section>
 					</Sidebar>
@@ -188,6 +190,7 @@ export default function Sermons() {
 						episodes.map((props, index) => {
 							return (
 								<Card
+									key={`episodes-item-${index}`}
 									column={5 + (index % 2) * 4}
 									style={{
 										fontFamily: theme.font.family.body,

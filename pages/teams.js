@@ -53,8 +53,11 @@ export default function Teams() {
 				</Banner.Badge>
 			</Banner>
 			{teams ? (
-				teams.map(({ title, description, helper }) => (
-					<Stripe color={theme.color.purple}>
+				teams.map(({ title, description, helper }, index) => (
+					<Stripe
+						color={theme.color.purple}
+						key={`teams-stripe-${index}`}
+					>
 						<Stripe.Badge
 							borderColor="white"
 							textColor="white"
@@ -66,8 +69,9 @@ export default function Teams() {
 							<Paragraph>{description}</Paragraph>
 						</Stripe.Body>
 						<Stripe.FigureGrid>
-							{helper.map(({ names, image }, index) => (
+							{helper.map(({ names, image }, helperIndex) => (
 								<Card
+									key={`teams-stripe-${index}-helper-${helperIndex}`}
 									style={{
 										transformOrigin: `50% 50%`,
 									}}

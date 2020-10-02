@@ -27,7 +27,13 @@ export const Carousel = ({ children, gridProps, frames, ...props }) => {
 	return (
 		<Wrapper {...props}>
 			{frames.map((src, index) => {
-				return <Frame src={src} delta={index - activeIndex} />;
+				return (
+					<Frame
+						src={src}
+						key={`carousel-frame-${index}`}
+						delta={index - activeIndex}
+					/>
+				);
 			})}
 
 			<Overlay />
@@ -38,6 +44,7 @@ export const Carousel = ({ children, gridProps, frames, ...props }) => {
 						{frames.map((src, index) => {
 							return (
 								<Dot
+									key={`carousel-dot-${index}`}
 									onClick={() => setActiveIndex(index)}
 									active={index === activeIndex}
 								/>

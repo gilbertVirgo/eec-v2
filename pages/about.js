@@ -84,7 +84,10 @@ export default function About() {
 				<br />
 				<Grid>
 					{about.dos.map(({ title, body }, index) => (
-						<Card column={(index % 3) * 4 + 1}>
+						<Card
+							key={`about-item-${index}`}
+							column={(index % 3) * 4 + 1}
+						>
 							<Caption>{title}</Caption>
 							<Paragraph>{body}</Paragraph>
 						</Card>
@@ -97,7 +100,10 @@ export default function About() {
 				<br />
 				<Grid>
 					{about.donts.map(({ title, body }, index) => (
-						<Card column={(index % 3) * 4 + 1}>
+						<Card
+							key={`about-item-${index + dos.length}`}
+							column={(index % 3) * 4 + 1}
+						>
 							<Caption>{title}</Caption>
 							<Paragraph>{body}</Paragraph>
 						</Card>
