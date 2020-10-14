@@ -14,6 +14,7 @@ import {
 	getXMLAttribute,
 	getXMLProperty,
 } from "../scripts/sermons";
+import { filterByDate, filterByText } from "../scripts/filter";
 
 import { ActivityIndicator } from "../components/ActivityIndicator/ActivityIndicator";
 import { Banner } from "../components/Banner";
@@ -43,20 +44,42 @@ const Card = styled.div`
 
 export default function Sermons() {
 	const [episodes, setEpisodes] = React.useState();
+	const [filteredEpisodes, setFilteredEpisodes] = React.useState();
+
+	const [searchText, setSearchText] = React.useState("");
 	const [dateRange, setDateRange] = React.useState({
 		min: 2012,
 		max: new Date().getFullYear(),
 	});
+	const [latestEpisode, setLatestEpisode] = React.useState();
 
 	React.useEffect(() => {
 		(async function () {
 			const episodes = await fetchPodcastEpisodes();
 
-			console.log({ episodes });
-
-			setEpisodes(episodes);
+			setLatestEpisode(episodes[0]);
+			setEpisodes(episodes.slice(1));
 		})();
 	}, []);
+
+	React.useEffect(() => {
+		setFilteredEpisodes(episodes);
+	}, [episodes]);
+
+	React.useEffect(() => {
+		if (episodes) {
+			const filteredByDate = filterByDate(episodes, dateRange);
+			const filteredByText = filterByText(filteredByDate, searchText);
+
+			console.log({ filteredByText, searchText });
+
+			if (
+				JSON.stringify(filteredByText) !==
+				JSON.stringify(filteredEpisodes)
+			)
+				setFilteredEpisodes(filteredByText);
+		}
+	}, [dateRange, searchText, episodes]);
 
 	return (
 		<Layout.Default title="Sermons">
@@ -86,32 +109,14 @@ export default function Sermons() {
 						<Stripe.Body>
 							<Group>
 								<Heading style={{ marginBottom: 0 }}>
-									{getXMLProperty(episodes[0], "title")}
+									{latestEpisode.title}
 								</Heading>
-								<Caption>
-									{getXMLProperty(
-										episodes[0],
-										"itunes:author"
-									)}
-								</Caption>
+								<Caption>{latestEpisode.author}</Caption>
 							</Group>
-							<Player
-								inverted
-								src={getXMLAttribute(
-									episodes[0],
-									"enclosure",
-									"url"
-								)}
-							/>
+							<Player inverted src={latestEpisode.url} />
 						</Stripe.Body>
 						<Stripe.Figure>
-							<img
-								src={getXMLAttribute(
-									episodes[0],
-									"itunes:image",
-									"href"
-								)}
-							/>
+							<img src={latestEpisode.image} />
 						</Stripe.Figure>
 					</React.Fragment>
 				) : (
@@ -136,7 +141,13 @@ export default function Sermons() {
 						<Section style={{ marginBottom: "30px" }}>
 							<Search.Wrapper>
 								<Search.Icon />
-								<Search.Input placeholder="Search by speaker, title or topic" />
+								<Search.Input
+									value={searchText}
+									onChange={({ target }) =>
+										setSearchText(target.value)
+									}
+									placeholder="Search by speaker, title or topic"
+								/>
 							</Search.Wrapper>
 						</Section>
 						<Section
@@ -186,36 +197,29 @@ export default function Sermons() {
 							))}
 						</Section>
 					</Sidebar>
-					{episodes ? (
-						episodes.map((props, index) => {
-							return (
-								<Card
-									key={`episodes-item-${index}`}
-									column={5 + (index % 2) * 4}
-									style={{
-										fontFamily: theme.font.family.body,
-									}}
-								>
-									<Subheading>
-										{getXMLProperty(props, "title")}
-									</Subheading>
-									<Paragraph>
-										{getXMLProperty(props, "itunes:author")}{" "}
-										|{" "}
-										{moment(
-											getXMLProperty(props, "pubDate")
-										).format("D MMMM YYYY")}{" "}
-									</Paragraph>
-									<Player
-										src={getXMLAttribute(
-											props,
-											"enclosure",
-											"url"
-										)}
-									/>
-								</Card>
-							);
-						})
+					{filteredEpisodes ? (
+						filteredEpisodes.map(
+							({ title, author, pubDate, url }, index) => {
+								return (
+									<Card
+										key={`episodes-item-${index}`}
+										column={5 + (index % 2) * 4}
+										style={{
+											fontFamily: theme.font.family.body,
+										}}
+									>
+										<Subheading>{title}</Subheading>
+										<Paragraph>
+											{author} |{" "}
+											{moment(pubDate).format(
+												"D MMMM YYYY"
+											)}{" "}
+										</Paragraph>
+										<Player src={url} />
+									</Card>
+								);
+							}
+						)
 					) : (
 						<Section>
 							<ActivityIndicator>

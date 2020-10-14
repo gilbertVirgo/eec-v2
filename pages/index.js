@@ -162,24 +162,12 @@ export default function Home() {
 						<Stripe.Body>
 							<Group>
 								<Heading style={{ marginBottom: 0 }}>
-									{getXMLProperty(latestEpisode, "title")}
+									{latestEpisode.title}
 								</Heading>
-								<Caption>
-									{getXMLProperty(
-										latestEpisode,
-										"itunes:author"
-									)}
-								</Caption>
+								<Caption>{latestEpisode.author}</Caption>
 							</Group>
 							<Group>
-								<Player
-									inverted
-									src={getXMLAttribute(
-										latestEpisode,
-										"enclosure",
-										"url"
-									)}
-								/>
+								<Player inverted src={latestEpisode.url} />
 							</Group>
 							<Caption>
 								<a href="/sermons">
@@ -192,13 +180,7 @@ export default function Home() {
 							</Caption>
 						</Stripe.Body>
 						<Stripe.Figure>
-							<img
-								src={getXMLAttribute(
-									latestEpisode,
-									"itunes:image",
-									"href"
-								)}
-							/>
+							<img src={latestEpisode.image} />
 						</Stripe.Figure>
 					</React.Fragment>
 				) : (
