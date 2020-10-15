@@ -71,8 +71,6 @@ export default function Sermons() {
 			const filteredByDate = filterByDate(episodes, dateRange);
 			const filteredByText = filterByText(filteredByDate, searchText);
 
-			console.log({ filteredByText, searchText });
-
 			if (
 				JSON.stringify(filteredByText) !==
 				JSON.stringify(filteredEpisodes)

@@ -20,7 +20,5 @@ export const filterByText = (episodes, text) =>
 			.join(" ")
 			.toLowerCase();
 
-		console.log({ combinedProps });
-
 		return combinedProps.indexOf(text.toLowerCase()) !== -1;
 	});

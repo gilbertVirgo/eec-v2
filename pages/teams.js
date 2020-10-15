@@ -23,8 +23,6 @@ export default function Teams() {
 		(async function () {
 			const teams = await fetchTeams();
 
-			console.log("teams", teams);
-
 			setTeams(teams);
 
 			// Initialise lax *after* teams have been fetched

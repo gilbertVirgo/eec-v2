@@ -20,10 +20,6 @@ export const Carousel = ({ children, gridProps, frames, ...props }) => {
 		};
 	}, []);
 
-	React.useEffect(() => {
-		console.log(activeIndex);
-	}, [activeIndex]);
-
 	return (
 		<Wrapper {...props}>
 			{frames.map((src, index) => {
