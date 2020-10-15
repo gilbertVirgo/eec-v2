@@ -12,18 +12,23 @@ export const getXMLAttribute = (itemProps, tagName, attrName) => {
 	return itemProps.find(({ name }) => name === tagName).attributes[attrName];
 };
 
-export const runTextFilter = (items, filter) => {
-	return items.filter({});
-};
+export const parse = (episode) => {
+	let description = episode.find(({ name }) => name === "description");
+	description =
+		Array.isArray(description.elements) &&
+		description.elements[0].cdata.replace(/<\/?[^>]+(>|$)/g, "");
 
-export const parse = (episode) => ({
-	title: getXMLProperty(episode, "title"),
-	author: getXMLProperty(episode, "itunes:author"),
-	pubDate: new Date(getXMLProperty(episode, "pubDate")),
-	url: getXMLAttribute(episode, "enclosure", "url"),
-	image: getXMLAttribute(episode, "itunes:image", "href"),
-	description: getXMLProperty(episode, "description"),
-});
+	console.log({ description });
+
+	return {
+		title: getXMLProperty(episode, "title"),
+		author: getXMLProperty(episode, "itunes:author"),
+		pubDate: new Date(getXMLProperty(episode, "pubDate")),
+		url: getXMLAttribute(episode, "enclosure", "url"),
+		image: getXMLAttribute(episode, "itunes:image", "href"),
+		description,
+	};
+};
 
 export const fetchPodcastEpisodes = async () => {
 	const response = await fetch(
