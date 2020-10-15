@@ -25,7 +25,7 @@ export default function Leaders() {
 
 	return (
 		<Layout.Default title="Leaders" style={{ color: "white" }}>
-			<Banner src="/assets/images/banner.png">
+			<Banner src="/assets/images/leaders.jpg">
 				<Banner.Badge
 					borderColor={leaders[0].color}
 					starColor="white"
@@ -41,22 +41,7 @@ export default function Leaders() {
 						color={color}
 						key={`leaders-stripe-${index}`}
 						expands
-						containerProps={{
-							style: {
-								position: "relative",
-							},
-						}}
-						gridProps={{
-							style: {
-								width: "100%",
-								position: "absolute",
-								margin: "0 auto",
-								left: "0",
-								right: "0",
-							},
-						}}
 					>
-						{/* Basically, the ImageWrapper and Columns are changing the margin which is messing everything up. Perhaps it would be better to make them both position: absolute somehow... */}
 						<BadgeWrapper>
 							<Badge
 								borderColor="white"

@@ -2,11 +2,12 @@ import {
 	Background,
 	BadgeWrapper,
 	Caption,
+	Container,
 	Figure,
 	FigureGrid,
+	Grid,
 	Wrapper,
 } from "./styles";
-import { Container, Grid } from "..";
 
 import Badge from "../Badge";
 import React from "react";
@@ -24,8 +25,10 @@ export function Stripe({
 	return (
 		<Wrapper sticky={sticky} {...props}>
 			<Background {...bgProps} expands={expands} color={color} />
-			<Container {...containerProps}>
-				<Grid {...gridProps}>{children}</Grid>
+			<Container sticky={sticky} {...containerProps}>
+				<Grid sticky={sticky} {...gridProps}>
+					{children}
+				</Grid>
 			</Container>
 		</Wrapper>
 	);

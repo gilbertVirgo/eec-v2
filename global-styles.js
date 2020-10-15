@@ -9,6 +9,6 @@ a:hover {
 }
 
 main {
-    overflow-x: hidden;
+    // overflow-x: hidden;
 }
 `;

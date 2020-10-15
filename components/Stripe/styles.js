@@ -1,7 +1,28 @@
+import { Container as DefaultContainer, Grid as DefaultGrid } from "..";
+
 import { Badge as DefaultBadge } from "../Badge/Badge";
-import { Grid } from "..";
 import styled from "styled-components";
 import theme from "../../theme";
+
+export const Container = styled(DefaultContainer)`
+	${theme.breakpoint("lg")`${({ sticky }) =>
+		sticky &&
+		`
+		position: relative`}`}
+`;
+
+export const Grid = styled(DefaultGrid)`
+	${theme.breakpoint("lg")`
+	${({ sticky }) =>
+		sticky &&
+		`
+			width: 100%;
+			position: absolute;
+			margin: 0 auto;
+			left: 0;
+			right: 0;
+		`}`}
+`;
 
 export const Wrapper = styled.div.attrs({
 	// className: "lax",
@@ -83,7 +104,7 @@ export const Caption = styled.div`
 		center ? `5 / -5` : `2 / 6`}`};
 `;
 
-export const FigureGrid = styled(Grid)`
+export const FigureGrid = styled(DefaultGrid)`
 	grid-column: 1 / -1;
 	grid-row: 3;
 	column-gap: ${theme.gutter}px;

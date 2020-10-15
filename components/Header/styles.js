@@ -46,6 +46,9 @@ export const Wrapper = styled.nav`
 	top: 0;
 	width: 100%;
 	z-index: 10;
+
+	overflow-x: hidden;
+
 	${theme.shadow};
 
 	box-sizing: border-box;
