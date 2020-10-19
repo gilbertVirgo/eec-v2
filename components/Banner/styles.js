@@ -7,7 +7,6 @@ export const Wrapper = styled.div`
 	overflow-x: hidden;
 	position: relative;
 	z-index: 1;
-	/* background-attachment: fixed; */
 	background-position: center;
 	background-repeat: no-repeat;
 	background-image: url(${({ src }) => src});
@@ -50,9 +49,7 @@ export const Frame = styled.div`
 	height: 100%;
 	position: absolute;
 	z-index: -1;
-
-	/* parallax */
-	/* background-attachment: fixed; */
+	filter: contrast(65%) hue-rotate(-10deg) brightness(75%);
 
 	background-image: url(${({ src }) => src});
 	background-size: cover;

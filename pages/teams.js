@@ -32,7 +32,7 @@ export default function Teams() {
 
 	return (
 		<Layout.Default title="Teams">
-			<Banner src="/assets/images/teams.png">
+			<Banner src="/assets/images/teams.jpg">
 				<Banner.Badge
 					borderColor={theme.color.purple}
 					starColor="white"
@@ -58,22 +58,29 @@ export default function Teams() {
 							<Paragraph>{description}</Paragraph>
 						</Stripe.Body>
 						<Stripe.FigureGrid>
-							{helper.map(({ names, image }, helperIndex) => (
-								<Card
-									key={`teams-stripe-${index}-helper-${helperIndex}`}
-									style={{
-										transformOrigin: `50% 50%`,
-									}}
-									className="lax"
-									data-lax-anchor="self"
-									data-lax-scale="vh 0.75, -vh 1.1"
-								>
-									<Card.Image src={image.url} />
-									<Card.Body>
-										<Subheading>{names}</Subheading>
-									</Card.Body>
-								</Card>
-							))}
+							{helper.map(
+								({ names, image, location }, helperIndex) => (
+									<Card
+										key={`teams-stripe-${index}-helper-${helperIndex}`}
+										style={{
+											transformOrigin: `50% 50%`,
+										}}
+										className="lax"
+										data-lax-anchor="self"
+										data-lax-scale="vh 0.75, -vh 1.1"
+									>
+										<Card.Image src={image.url} />
+										<Card.Body>
+											<Subheading>{names}</Subheading>
+											{location && (
+												<Paragraph>
+													{location}
+												</Paragraph>
+											)}
+										</Card.Body>
+									</Card>
+								)
+							)}
 						</Stripe.FigureGrid>
 					</Stripe>
 				))

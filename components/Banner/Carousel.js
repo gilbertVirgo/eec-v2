@@ -32,7 +32,7 @@ export const Carousel = ({ children, gridProps, frames, ...props }) => {
 				);
 			})}
 
-			<Overlay />
+			{/* <Overlay /> */}
 			<Container>
 				<Grid {...gridProps}>
 					{children}
