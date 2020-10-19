@@ -28,12 +28,6 @@ import moment from "moment";
 import styled from "styled-components";
 import theme from "../theme";
 
-//
-//
-// Get the filter thing working for mobile
-//
-//
-
 const Card = styled.div`
 	grid-column: 1 / -1;
 
@@ -52,6 +46,7 @@ export default function Sermons() {
 		max: new Date().getFullYear(),
 	});
 	const [latestEpisode, setLatestEpisode] = React.useState();
+	const [sidebarOpen, setSidebarOpen] = React.useState(false);
 
 	React.useEffect(() => {
 		(async function () {
@@ -126,13 +121,13 @@ export default function Sermons() {
 					Previous Weeks
 				</Heading>
 				<Grid>
-					<Sidebar>
+					<Sidebar open={sidebarOpen}>
 						<Section>
 							<Caption>
 								Filters{" "}
-								<img
-									src="/assets/icons/chevron-down.svg"
-									width={12}
+								<Sidebar.Control
+									onClick={() => setSidebarOpen(!sidebarOpen)}
+									open={sidebarOpen}
 								/>
 							</Caption>
 						</Section>
@@ -152,6 +147,8 @@ export default function Sermons() {
 							style={{
 								fontFamily: theme.font.family.body,
 								marginBottom: theme.gutter * 3 + "px",
+								padding: "0 15px",
+								boxSizing: "border-box",
 							}}
 						>
 							<InputRange
@@ -163,7 +160,7 @@ export default function Sermons() {
 								value={dateRange}
 							/>
 						</Section>
-						<Section>
+						{/* <Section>
 							<Caption>Sermon Series</Caption>
 						</Section>
 						<Section>
@@ -193,7 +190,7 @@ export default function Sermons() {
 									{name}
 								</Paragraph>
 							))}
-						</Section>
+						</Section> */}
 					</Sidebar>
 					{filteredEpisodes ? (
 						filteredEpisodes.map(

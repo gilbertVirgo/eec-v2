@@ -4,15 +4,35 @@ import theme from "../theme";
 
 export const Sidebar = styled.div`
 	grid-column: 1 / -1;
-	overflow-y: hidden;
-	max-height: ${({ active }) => (active ? `none` : `35px`)};
+	overflow: hidden;
+	will-change: height;
+	height: ${({ open }) => (open ? `151px;` : `35px`)};
+	transition: height 0.3s;
 
 	${theme.breakpoint("md")`
 		overflow: visible;
         grid-column: 1 / 4;
 		grid-row: 1 / 10
-		max-height: none;
+		height: auto;
     `}
+`;
+
+Sidebar.Control = styled.div`
+	display: inline-block;
+	width: 30px;
+	height: 12px;
+	background-image: url("/assets/icons/chevron-down.svg");
+	background-size: 12px auto;
+	background-position: center;
+	background-repeat: no-repeat;
+	will-change: transform;
+	transition: transform 0.3s;
+
+	${({ open }) => open && `transform: rotate(180deg);`}
+
+	${theme.breakpoint("md")`
+		display: none;
+	`}
 `;
 
 export const Section = styled(DefaultSection)`
