@@ -28,19 +28,6 @@ export default [
 		},
 	},
 	{
-		name: "Frazer",
-		color: "#465363",
-		image: "/assets/images/frazer.png",
-		content: {
-			testimony:
-				"I became a Christian at university and then dropped out to become a missionary. After two years in South Asia I went back to university. It has been an up and down Christian life, but Jesus has always remained a constant saviour.",
-			london:
-				"I have been to some of the world's great cities. None is better than London and there is no better part of London than East London.",
-			family: "I am married with 4 kids - 2 boys and 2 girls.",
-			job: "I work both for the Civil Service and East End Church.",
-		},
-	},
-	{
 		name: "Ev",
 		color: "#645B4C",
 		image: "/assets/images/ev.png",
@@ -53,6 +40,19 @@ export default [
 				"Married to my best mate, Esther and we have 2 boys and a girl.",
 			job:
 				"I’ve got fingers in many pies. I’m a part-time plumber, I've got a building firm and I also work for the Civil Service – yep, it couldn’t be more different!",
+		},
+	},
+	{
+		name: "Frazer",
+		color: "#465363",
+		image: "/assets/images/frazer.png",
+		content: {
+			testimony:
+				"I became a Christian at university and then dropped out to become a missionary. After two years in South Asia I went back to university. It has been an up and down Christian life, but Jesus has always remained a constant saviour.",
+			london:
+				"I have been to some of the world's great cities. None is better than London and there is no better part of London than East London.",
+			family: "I am married with 4 kids - 2 boys and 2 girls.",
+			job: "I work both for the Civil Service and East End Church.",
 		},
 	},
 	{
