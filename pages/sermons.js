@@ -74,6 +74,10 @@ export default function Sermons() {
 		}
 	}, [dateRange, searchText, episodes]);
 
+	const seriesTitles = episodes
+		? [...new Set(episodes.map(({ seriesTitle }) => seriesTitle))]
+		: [];
+
 	return (
 		<Layout.Default title="Sermons">
 			<Banner src="/assets/images/sermons-banner.jpg">
@@ -160,37 +164,20 @@ export default function Sermons() {
 								value={dateRange}
 							/>
 						</Section>
-						{/* <Section>
+						<Section>
 							<Caption>Sermon Series</Caption>
 						</Section>
 						<Section>
-							{[
-								"Jacob Series",
-								"Party Series",
-								"I Am - Claims of Jesus",
-								"Ephesians",
-								"Superheroes",
-								"Acts: Partnering with the Holy Spirit",
-								"The Lords Prayer",
-								"Jeremiah",
-								"Esther",
-								"Spring 2016",
-								"The Great Commission",
-								"Guests",
-								"1 Corinthians Series",
-								"East End Heroes",
-								"EEC Under Construction",
-								"Foundation Series",
-								"Gospel Series",
-								"Joseph Series",
-								"Matthew Series",
-								"Money Series",
-							].map((name, index) => (
-								<Paragraph key={`series-title-${index}`}>
+							{seriesTitles.map((name, index) => (
+								<Paragraph
+									style={{ cursor: "pointer" }}
+									onClick={() => setSearchText(name)}
+									key={`series-title-${index}`}
+								>
 									{name}
 								</Paragraph>
 							))}
-						</Section> */}
+						</Section>
 					</Sidebar>
 					{filteredEpisodes ? (
 						filteredEpisodes.map(

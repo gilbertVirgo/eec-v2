@@ -15,8 +15,8 @@ function arrayContainsArray(superset, subset) {
 }
 
 export const filterByText = (episodes, text) =>
-	episodes.filter(({ title, description = "", author }) => {
-		const combinedProps = [title, description, author]
+	episodes.filter(({ title, description = "", seriesTitle, author }) => {
+		const combinedProps = [title, description, seriesTitle, author]
 			.join(" ")
 			.toLowerCase();
 

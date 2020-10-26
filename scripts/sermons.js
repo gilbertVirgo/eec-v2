@@ -3,9 +3,9 @@ import convert from "xml-js";
 export const getXMLProperty = (itemProps, tagName) => {
 	const item = itemProps.find(({ name }) => name === tagName);
 
-	if (item.hasOwnProperty("elements")) return item.elements[0].text;
-	else console.log(item);
-	return "null";
+	if (item && item.hasOwnProperty("elements")) return item.elements[0].text;
+
+	return "";
 };
 
 export const getXMLAttribute = (itemProps, tagName, attrName) => {
@@ -18,7 +18,9 @@ export const parse = (episode) => {
 		Array.isArray(description.elements) &&
 		description.elements[0].cdata.replace(/<\/?[^>]+(>|$)/g, "");
 
-	console.log({ description });
+	console.log(episode);
+
+	const seriesTitle = getXMLProperty(episode, "itunes:summary");
 
 	return {
 		title: getXMLProperty(episode, "title"),
@@ -27,6 +29,7 @@ export const parse = (episode) => {
 		url: getXMLAttribute(episode, "enclosure", "url"),
 		image: getXMLAttribute(episode, "itunes:image", "href"),
 		description,
+		seriesTitle: description !== seriesTitle ? seriesTitle : undefined,
 	};
 };
 
@@ -42,8 +45,6 @@ export const fetchPodcastEpisodes = async () => {
 	const { elements } = JSON.parse(json);
 	const rss = elements.find(({ name }) => name === "rss");
 	const channel = rss.elements.find(({ name }) => name === "channel");
-
-	console.log({ channel });
 
 	return channel.elements
 		.filter(({ name }) => name === "item")
