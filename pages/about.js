@@ -97,10 +97,10 @@ export default function About() {
 				</Stripe.Figure>
 			</Stripe>
 			<Container
-				className="lax"
-				data-lax-translate-x="vh -100px, 200 0"
-				data-lax-opacity="vh 0.25, 200 1"
-				data-lax-anchor="self"
+			// className="lax"
+			// data-lax-translate-x="vh -100px, 200 0"
+			// data-lax-opacity="vh 0.25, 200 1"
+			// data-lax-anchor="self"
 			>
 				<Heading>Here are some do's</Heading>
 				<br />
@@ -118,10 +118,10 @@ export default function About() {
 				</Grid>
 			</Container>
 			<Container
-				className="lax"
-				data-lax-translate-x="vh 100px, 200 0"
-				data-lax-opacity="vh 0.25, 200 1"
-				data-lax-anchor="self"
+			// className="lax"
+			// data-lax-translate-x="vh 100px, 200 0"
+			// data-lax-opacity="vh 0.25, 200 1"
+			// data-lax-anchor="self"
 			>
 				<Heading>Here are some dont's</Heading>
 				<br />
