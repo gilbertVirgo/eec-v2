@@ -44,10 +44,10 @@ export const Wrapper = styled.nav`
 	position: fixed;
 	left: 0;
 	top: 0;
-	width: 100%;
+	width: 100vw;
 	z-index: 10;
 
-	overflow-x: hidden;
+	/* overflow-x: hidden; */
 
 	${theme.shadow};
 
