@@ -33,6 +33,23 @@ export const parse = (episode) => {
 	};
 };
 
+export const splitIntoPages = (episodes) => {
+	const pageLength = 10;
+
+	const pages = [];
+
+	episodes.forEach((episode, index) => {
+		const pageNumber = Math.floor(index / pageLength);
+		if (!pages[pageNumber]) {
+			pages[pageNumber] = [episode];
+		} else {
+			pages[pageNumber].push(episode);
+		}
+	});
+
+	return pages;
+};
+
 export const fetchPodcastEpisodes = async () => {
 	const response = await fetch(
 		"https://feed.podbean.com/eastendchurchlondon/feed.xml",

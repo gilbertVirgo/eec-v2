@@ -13,6 +13,7 @@ import {
 	fetchPodcastEpisodes,
 	getXMLAttribute,
 	getXMLProperty,
+	splitIntoPages,
 } from "../scripts/sermons";
 import { filterByDate, filterByText } from "../scripts/filter";
 
@@ -36,6 +37,23 @@ const Card = styled.div`
 	`}
 `;
 
+const PageNumberWrapper = styled.div`
+	grid-column: 1 / -1;
+
+	${theme.breakpoint("lg")`
+		grid-column: 5 / -1;
+	`}
+`;
+
+const PageIncrement = styled.a.attrs({ href: "javascript:void(0)" })`
+	${({ disabled }) =>
+		disabled &&
+		`
+		pointer-events: none;
+		opacity: 0.35;
+	`}
+`;
+
 export default function Sermons() {
 	const [episodes, setEpisodes] = React.useState();
 	const [filteredEpisodes, setFilteredEpisodes] = React.useState();
@@ -47,6 +65,7 @@ export default function Sermons() {
 	});
 	const [latestEpisode, setLatestEpisode] = React.useState();
 	const [sidebarOpen, setSidebarOpen] = React.useState(false);
+	const [pageNumber, setPageNumber] = React.useState(0);
 
 	React.useEffect(() => {
 		(async function () {
@@ -77,6 +96,11 @@ export default function Sermons() {
 	const seriesTitles = episodes
 		? [...new Set(episodes.map(({ seriesTitle }) => seriesTitle))]
 		: [];
+
+	const pages = splitIntoPages(filteredEpisodes || []);
+	const episodesOnPage = pages[pageNumber] || [];
+
+	console.log(episodesOnPage, pageNumber);
 
 	return (
 		<Layout.Default title="Sermons">
@@ -179,29 +203,58 @@ export default function Sermons() {
 							))}
 						</Section>
 					</Sidebar>
-					{filteredEpisodes ? (
-						filteredEpisodes.map(
-							({ title, author, pubDate, url }, index) => {
-								return (
-									<Card
-										key={`episodes-item-${index}`}
-										column={5 + (index % 2) * 4}
-										style={{
-											fontFamily: theme.font.family.body,
-										}}
+					{episodesOnPage.length ? (
+						<React.Fragment>
+							{episodesOnPage.map(
+								({ title, author, pubDate, url }, index) => {
+									return (
+										<Card
+											key={`episodes-item-${index}`}
+											column={5 + (index % 2) * 4}
+											style={{
+												fontFamily:
+													theme.font.family.body,
+											}}
+										>
+											<Subheading>{title}</Subheading>
+											<Paragraph>
+												{author} |{" "}
+												{moment(pubDate).format(
+													"D MMMM YYYY"
+												)}{" "}
+											</Paragraph>
+											<Player src={url} />
+										</Card>
+									);
+								}
+							)}
+							<PageNumberWrapper>
+								<Paragraph>
+									Page {pageNumber + 1} of {pages.length}
+								</Paragraph>
+								<Caption>
+									<PageIncrement
+										onClick={() =>
+											setPageNumber((n) => n - 1)
+										}
+										disabled={pageNumber === 0}
 									>
-										<Subheading>{title}</Subheading>
-										<Paragraph>
-											{author} |{" "}
-											{moment(pubDate).format(
-												"D MMMM YYYY"
-											)}{" "}
-										</Paragraph>
-										<Player src={url} />
-									</Card>
-								);
-							}
-						)
+										Previous page
+									</PageIncrement>{" "}
+									/{" "}
+									<PageIncrement
+										onClick={() =>
+											setPageNumber((n) => n + 1)
+										}
+										disabled={
+											pageNumber === pages.length - 1
+										}
+									>
+										Next page
+									</PageIncrement>
+								</Caption>
+							</PageNumberWrapper>
+						</React.Fragment>
 					) : (
 						<Section>
 							<ActivityIndicator>
