@@ -88,8 +88,10 @@ export default function Sermons() {
 			if (
 				JSON.stringify(filteredByText) !==
 				JSON.stringify(filteredEpisodes)
-			)
+			) {
+				setPageNumber(0);
 				setFilteredEpisodes(filteredByText);
+			}
 		}
 	}, [dateRange, searchText, episodes]);
 
@@ -184,7 +186,6 @@ export default function Sermons() {
 								maxValue={new Date().getFullYear()}
 								minValue={2012}
 								onChange={(value) => setDateRange(value)}
-								onChangeComplete={(value) => console.log(value)}
 								value={dateRange}
 							/>
 						</Section>
