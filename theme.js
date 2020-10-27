@@ -18,6 +18,7 @@ export default {
 		purple: "#6F3B51",
 		grey: "#463B40",
 		light: "#E5E4DA",
+		swampGreen: "#64694B",
 	},
 	font: {
 		family: {

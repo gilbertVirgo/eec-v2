@@ -95,6 +95,58 @@ export default function Home() {
 				</Banner.Body>
 			</Carousel>
 
+			<Stripe color={theme.color.swampGreen} style={{ color: "white" }}>
+				<Stripe.Badge
+					borderColor="white"
+					textColor="white"
+					starColor={theme.color.swampGreen}
+				>
+					This Sunday
+				</Stripe.Badge>
+				<Stripe.Body>
+					<Group>
+						<Heading>Join us online</Heading>
+					</Group>
+
+					<Group>
+						<Paragraph>
+							We’ve recently begun meeting together again at{" "}
+							<a
+								style={{ fontWeight: "bold" }}
+								href="javascript:void(0)"
+								onClick={() => {
+									document
+										.getElementById("find-us")
+										.scrollIntoView({
+											behavior: "smooth",
+										});
+								}}
+							>
+								Raine’s Foundation School
+							</a>{" "}
+							but we are continuing to broadcast our service on
+							YouTube.
+							<br />
+							<br />
+							We meet at 10:30 on a Sunday morning.
+						</Paragraph>
+					</Group>
+
+					<Caption>
+						<a href="https://www.youtube.com/channel/UCMaP8Yi3cu1uSQklAeZewOQ/featured">
+							Find us on YouTube
+							<img
+								style={{ marginLeft: "4px" }}
+								src="/assets/icons/chevron-right.svg"
+							/>
+						</a>
+					</Caption>
+				</Stripe.Body>
+				<Stripe.Figure>
+					<img src="/assets/images/this-sunday.jpg" />
+				</Stripe.Figure>
+			</Stripe>
+
 			<Stripe color={theme.color.orange} style={{ color: "white" }}>
 				<Stripe.Badge
 					borderColor="white"
@@ -190,6 +242,7 @@ export default function Home() {
 				)}
 			</Stripe>
 			<Stripe
+				id="find-us"
 				color={theme.color.purple}
 				style={{ marginBottom: "100px" }}
 			>
