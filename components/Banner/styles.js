@@ -76,8 +76,14 @@ export const Body = styled.div`
 
 export const BadgeWrapper = styled(Badge)`
 	h1 {
-		font-size: 63px !important;
+		font-size: 63px;
 	}
+
+	${theme.breakpoint("md")`
+		h1 {
+			font-size: 78px;
+		}
+	`}
 
 	grid-column: 1 / -1;
 	${theme.breakpoint("md")`grid-column: 4 / -4`}
