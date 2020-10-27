@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
 	background-image: url(${({ src }) => src});
 	background-size: cover;
 	width: 100%;
-	${theme.map(
+	/* ${theme.map(
 		{
 			xs: 425,
 			sm: 475,
@@ -21,7 +21,8 @@ export const Wrapper = styled.div`
 			xl: 625,
 		},
 		(minHeight) => `min-height: ${minHeight}px`
-	)};
+	)}; */
+	min-height: 65vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
