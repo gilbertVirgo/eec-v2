@@ -24,6 +24,8 @@ const Label = styled(Heading)`
 	grid-column: 2 / -1;
 	color: white;
 	font-size: 24px;
+	position: relative;
+	top: 10px;
 
 	${theme.breakpoint("md")`
 		grid-column: 5 / -5;
@@ -52,9 +54,15 @@ export default function Contact() {
 					}}
 				/>
 				<Icon src="/assets/icons/phone.svg" />
-				<Label>0208 616 9199</Label>
+				<Label>
+					<a href="tel:+442086169199">0208 616 9199</a>
+				</Label>
 				<Icon src="/assets/icons/email.svg" />
-				<Label>info@eastendchurch.co.uk</Label>
+				<Label>
+					<a href="mailto:info@eastendchurch.co.uk">
+						info@eastendchurch.com
+					</a>
+				</Label>
 			</Banner>
 			<Stripe
 				color={theme.color.orange}
