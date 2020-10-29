@@ -19,12 +19,18 @@ export function Stripe({
 	containerProps,
 	gridProps,
 	expands,
+	expandsAll,
 	sticky,
 	...props
 }) {
 	return (
 		<Wrapper sticky={sticky} {...props}>
-			<Background {...bgProps} expands={expands} color={color} />
+			<Background
+				{...bgProps}
+				expands={expands}
+				expandsAll={expandsAll}
+				color={color}
+			/>
 			<Container sticky={sticky} {...containerProps}>
 				<Grid sticky={sticky} {...gridProps}>
 					{children}

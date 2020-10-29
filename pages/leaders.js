@@ -76,7 +76,7 @@ export default function Leaders() {
 							</div>
 							<div>
 								<Caption>
-									What do you do monday to friday?
+									What do you do Monday to Friday?
 								</Caption>
 								<Paragraph>{content.job}</Paragraph>
 							</div>

@@ -1,9 +1,9 @@
 import {
-	Caption,
 	Container,
 	Grid,
 	Heading,
 	Paragraph,
+	Subheading,
 	Title,
 } from "../components";
 
@@ -96,48 +96,68 @@ export default function About() {
 					<img src="/assets/images/church.jpg" />
 				</Stripe.Figure>
 			</Stripe>
-			<Container
-			// className="lax"
-			// data-lax-translate-x="vh -100px, 200 0"
-			// data-lax-opacity="vh 0.25, 200 1"
-			// data-lax-anchor="self"
-			>
-				<Heading>Here are some do's</Heading>
-				<br />
-				<br />
-				<Grid>
+			<Stripe expands expandsAll color={theme.color.purple}>
+				<Stripe.Badge
+					textColor="white"
+					starColor={theme.color.purple}
+					borderColor="white"
+				>
+					Some Do's
+				</Stripe.Badge>
+				<Stripe.FigureGrid
+					style={{ color: "white", marginTop: "-55px" }}
+				>
+					{/* <Heading
+						style={{
+							gridColumn: "1 / -1",
+							textAlign: "center",
+						}}
+					>
+						Here are some things that we encourage you to do...
+					</Heading> */}
 					{about.dos.map(({ title, body }, index) => (
 						<Card
 							key={`about-item-${index}`}
 							column={(index % 3) * 4 + 1}
 						>
-							<Caption>{title}</Caption>
+							<Subheading>{title}</Subheading>
 							<Paragraph>{body}</Paragraph>
 						</Card>
 					))}
-				</Grid>
-			</Container>
-			<Container
-			// className="lax"
-			// data-lax-translate-x="vh 100px, 200 0"
-			// data-lax-opacity="vh 0.25, 200 1"
-			// data-lax-anchor="self"
-			>
-				<Heading>Here are some dont's</Heading>
-				<br />
-				<br />
-				<Grid>
+				</Stripe.FigureGrid>
+			</Stripe>
+
+			<Stripe expands expandsAll color={theme.color.purple}>
+				<Stripe.Badge
+					textColor="white"
+					starColor={theme.color.purple}
+					borderColor="white"
+				>
+					Some Dont's
+				</Stripe.Badge>
+				<Stripe.FigureGrid
+					style={{ color: "white", marginTop: "-45px" }}
+				>
+					{/* <Heading
+						style={{
+							gridColumn: "1 / -1",
+							textAlign: "center",
+						}}
+					>
+						Here are some things that we encourage you <i>not</i> to
+						do...
+					</Heading> */}
 					{about.donts.map(({ title, body }, index) => (
 						<Card
-							key={`about-item-${index + about.dos.length}`}
+							key={`about-item-${index}`}
 							column={(index % 3) * 4 + 1}
 						>
-							<Caption>{title}</Caption>
+							<Subheading>{title}</Subheading>
 							<Paragraph>{body}</Paragraph>
 						</Card>
 					))}
-				</Grid>
-			</Container>
+				</Stripe.FigureGrid>
+			</Stripe>
 		</Layout.Default>
 	);
 }

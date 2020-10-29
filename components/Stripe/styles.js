@@ -75,7 +75,8 @@ export const Background = styled.div`
 	transform: skewY(-20deg);
 
 	height: ${({ expands }) => (expands ? `100%` : `600px`)};
-	${theme.breakpoint("lg")`min-height: none; height: 600px`}
+	${theme.breakpoint("lg")`${({ expandsAll }) =>
+		expandsAll ? `` : `min-height: none; height: 600px`}`}
 
 	background: url("/assets/images/noise.png") repeat, ${({ color }) => color};
 
