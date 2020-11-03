@@ -23,7 +23,7 @@ const Icon = styled.div`
 const Label = styled(Heading)`
 	grid-column: 2 / -1;
 	color: white;
-	font-size: 24px;
+	font-size: 16px;
 	position: relative;
 	top: 10px;
 
@@ -60,7 +60,7 @@ export default function Contact() {
 				<Icon src="/assets/icons/email.svg" />
 				<Label>
 					<a href="mailto:info@eastendchurch.co.uk">
-						info@eastendchurch.com
+						info@eastendchurch.co.uk
 					</a>
 				</Label>
 			</Banner>
