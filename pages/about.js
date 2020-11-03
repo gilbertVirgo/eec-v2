@@ -31,8 +31,12 @@ const Card = styled.div`
 `;
 
 export default function About() {
+	const [windowHeight, setWindowHeight] = React.useState();
+
 	React.useEffect(() => {
 		initLax();
+
+		setWindowHeight(window.innerHeight);
 	}, []);
 
 	return (
@@ -57,6 +61,7 @@ export default function About() {
 					</Paragraph>
 				</Banner.Body>
 			</Banner>
+
 			<Stripe color={theme.color.orange}>
 				<Stripe.Body style={{ color: "white" }}>
 					<Title>What sort of church are we?</Title>
@@ -96,25 +101,24 @@ export default function About() {
 					<img src="/assets/images/church.jpg" />
 				</Stripe.Figure>
 			</Stripe>
-			<Stripe expands expandsAll color={theme.color.purple}>
+			<Stripe
+				className="lax"
+				data-lax-opacity="vh 0, 250px 1"
+				data-lax-anchor="self"
+				expands
+				expandsAll
+				color={theme.color.swampGreen}
+			>
 				<Stripe.Badge
 					textColor="white"
-					starColor={theme.color.purple}
+					starColor={theme.color.swampGreen}
 					borderColor="white"
 				>
 					Some Do's
 				</Stripe.Badge>
 				<Stripe.FigureGrid
-					style={{ color: "white", marginTop: "-55px" }}
+					style={{ color: "white", marginTop: "-45px" }}
 				>
-					{/* <Heading
-						style={{
-							gridColumn: "1 / -1",
-							textAlign: "center",
-						}}
-					>
-						Here are some things that we encourage you to do...
-					</Heading> */}
 					{about.dos.map(({ title, body }, index) => (
 						<Card
 							key={`about-item-${index}`}
@@ -127,7 +131,14 @@ export default function About() {
 				</Stripe.FigureGrid>
 			</Stripe>
 
-			<Stripe expands expandsAll color={theme.color.purple}>
+			<Stripe
+				className="lax"
+				data-lax-opacity="vh 0, 200px 1"
+				data-lax-anchor="self"
+				expands
+				expandsAll
+				color={theme.color.purple}
+			>
 				<Stripe.Badge
 					textColor="white"
 					starColor={theme.color.purple}
@@ -138,15 +149,6 @@ export default function About() {
 				<Stripe.FigureGrid
 					style={{ color: "white", marginTop: "-45px" }}
 				>
-					{/* <Heading
-						style={{
-							gridColumn: "1 / -1",
-							textAlign: "center",
-						}}
-					>
-						Here are some things that we encourage you <i>not</i> to
-						do...
-					</Heading> */}
 					{about.donts.map(({ title, body }, index) => (
 						<Card
 							key={`about-item-${index}`}

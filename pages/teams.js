@@ -50,7 +50,13 @@ export default function Teams() {
 					const color = colors[index % colors.length];
 
 					return (
-						<Stripe color={color} key={`teams-stripe-${index}`}>
+						<Stripe
+							color={color}
+							className="lax"
+							data-lax-opacity={index !== 0 && "vh 0, 250px 1"}
+							data-lax-anchor="self"
+							key={`teams-stripe-${index}`}
+						>
 							<Stripe.Badge
 								borderColor="white"
 								textColor="white"
