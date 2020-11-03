@@ -39,7 +39,7 @@ export default {
 		{
 			title: "Worry if your kids make a noise",
 			body:
-				"We love kids, we love to produce them. Sometimes they behave - often they don't! But they're a part of the family. We run a creche for under 4's and a kids club for 5-11's. These run during the Sunday morning meeting. We also run youth work on separate evenings during the week",
+				"We love kids, we love to produce them. Sometimes they behave - often they don't! But they're a part of the family. We run a creche for under 5's and a kids club for 6-11's. These run during the Sunday morning meeting. We also run youth work on separate evenings during the week",
 		},
 		{
 			title: "Be afraid to ask questions",
