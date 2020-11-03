@@ -79,7 +79,7 @@ export default function Contact() {
 					<Pin fill="white" />
 				</div>
 				<div style={{ gridColumn: "2 / -1" }}>
-					<Heading>Raine's Foundation School</Heading>
+					<Heading>The Henry Raine's Building</Heading>
 					<Caption>London, E2 9LY</Caption>
 				</div>
 				<div
@@ -98,11 +98,7 @@ export default function Contact() {
 						marginHeight="0"
 						marginWidth="0"
 					>
-						<div className="zxos8_gm">
-							<a href="https://www.twinstiarasandtantrums.com/2020/06/buying-a-mattress-is-a-nightmare/">
-								according to this review
-							</a>
-						</div>
+						<div className="zxos8_gm"></div>
 						<div style={{ overflow: "hidden" }}>
 							<div
 								id="gmap_canvas"

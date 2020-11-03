@@ -16,6 +16,10 @@ import { fetchTeams } from "../scripts/teams";
 import initLax from "../scripts/initLax";
 import theme from "../theme";
 
+const colors = ["blue", "orange", "purple", "swampGreen"].map(
+	(color) => theme.color[color]
+);
+
 export default function Teams() {
 	const [teams, setTeams] = React.useState();
 
@@ -42,48 +46,52 @@ export default function Teams() {
 				</Banner.Badge>
 			</Banner>
 			{teams ? (
-				teams.map(({ title, description, helper }, index) => (
-					<Stripe
-						color={theme.color.purple}
-						key={`teams-stripe-${index}`}
-					>
-						<Stripe.Badge
-							borderColor="white"
-							textColor="white"
-							starColor={theme.color.purple}
-						>
-							{title}
-						</Stripe.Badge>
-						<Stripe.Body style={{ color: "white" }} center>
-							<Paragraph>{description}</Paragraph>
-						</Stripe.Body>
-						<Stripe.FigureGrid>
-							{helper.map(
-								({ names, image, location }, helperIndex) => (
-									<Card
-										key={`teams-stripe-${index}-helper-${helperIndex}`}
-										style={{
-											transformOrigin: `50% 50%`,
-										}}
-										className="lax"
-										data-lax-anchor="self"
-										data-lax-scale="vh 0.75, -vh 1.1"
-									>
-										<Card.Image src={image.url} />
-										<Card.Body>
-											<Subheading>{names}</Subheading>
-											{location && (
-												<Paragraph>
-													{location}
-												</Paragraph>
-											)}
-										</Card.Body>
-									</Card>
-								)
-							)}
-						</Stripe.FigureGrid>
-					</Stripe>
-				))
+				teams.map(({ title, description, helper }, index) => {
+					const color = colors[index % colors.length];
+
+					return (
+						<Stripe color={color} key={`teams-stripe-${index}`}>
+							<Stripe.Badge
+								borderColor="white"
+								textColor="white"
+								starColor={color}
+							>
+								{title}
+							</Stripe.Badge>
+							<Stripe.Body style={{ color: "white" }} center>
+								<Paragraph>{description}</Paragraph>
+							</Stripe.Body>
+							<Stripe.FigureGrid>
+								{helper.map(
+									(
+										{ names, image, location },
+										helperIndex
+									) => (
+										<Card
+											key={`teams-stripe-${index}-helper-${helperIndex}`}
+											style={{
+												transformOrigin: `50% 50%`,
+											}}
+											className="lax"
+											data-lax-anchor="self"
+											data-lax-scale="vh 0.75, -vh 1.1"
+										>
+											<Card.Image src={image.url} />
+											<Card.Body>
+												<Subheading>{names}</Subheading>
+												{location && (
+													<Paragraph>
+														{location}
+													</Paragraph>
+												)}
+											</Card.Body>
+										</Card>
+									)
+								)}
+							</Stripe.FigureGrid>
+						</Stripe>
+					);
+				})
 			) : (
 				<ActivityIndicator>Loading teams...</ActivityIndicator>
 			)}
