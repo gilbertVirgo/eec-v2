@@ -9,10 +9,8 @@ export const Container = styled.div.attrs({ className: "container" })`
 	margin: 45px auto;
 
 	${theme.breakpoint("md")`max-width: 720px; margin: 75px auto;`}
-	${theme.breakpoint("lg")`max-width: 1024px;`}
-    ${theme.breakpoint(
-		"xl"
-	)`max-width: 1280px;`}
+	${theme.breakpoint("lg")`max-width: 1200px;`}
+    ${theme.breakpoint("xl")`max-width: 1600px;`}
 `;
 
 export const Grid = styled.div`

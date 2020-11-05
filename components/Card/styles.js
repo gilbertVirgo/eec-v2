@@ -7,14 +7,15 @@ export const Wrapper = styled.div`
 	${theme.breakpoint("lg")`grid-column: span 4`}
 `;
 export const Image = styled.div`
-    height: 50vw;
-    ${theme.breakpoint("sm")`height: 230px;`}
+	height: 50vw;
+	${theme.breakpoint("sm")`height: 230px;`}
+	${theme.breakpoint("lg")`height: 320px`}
 
     background-image: url("${({ src }) => src}");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    margin-bottom: ${theme.gutter}px;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	margin-bottom: ${theme.gutter}px;
 `;
 export const Body = styled.div`
 	padding: ${theme.gutter}px ${theme.gutter}px 0;
