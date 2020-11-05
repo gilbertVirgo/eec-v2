@@ -30,7 +30,7 @@ export default function Teams() {
 			setTeams(teams);
 
 			// Initialise lax *after* teams have been fetched
-			initLax();
+			window.setTimeout(initLax);
 		})();
 	}, []);
 

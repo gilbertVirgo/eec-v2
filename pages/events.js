@@ -14,6 +14,7 @@ import Card from "../components/Card";
 import Layout from "../components/Layout";
 import List from "../components/List";
 import Stripe from "../components/Stripe";
+import initLax from "../scripts/initLax";
 import moment from "moment";
 import { regular } from "../data/events";
 import theme from "../theme";
@@ -29,6 +30,8 @@ export default function Events() {
 
 			const regularEvents = await fetchRegularEvents();
 			setRegularEvents(regularEvents);
+
+			initLax();
 		})();
 	}, []);
 

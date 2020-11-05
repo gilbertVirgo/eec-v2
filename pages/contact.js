@@ -4,6 +4,7 @@ import { Banner } from "../components/Banner";
 import Layout from "../components/Layout";
 import Pin from "../public/assets/icons/pin.svg";
 import Stripe from "../components/Stripe";
+import initLax from "../scripts/initLax";
 import styled from "styled-components";
 import theme from "../theme";
 
@@ -34,6 +35,8 @@ const Label = styled(Heading)`
 `;
 
 export default function Contact() {
+	React.useEffect(initLax, []);
+
 	return (
 		<Layout.Default title="Contact">
 			<Banner

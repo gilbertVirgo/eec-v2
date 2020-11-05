@@ -15,6 +15,7 @@ import Stripe from "../components/Stripe";
 import { Tagline } from "../styles/index";
 import { animationLength } from "../components/List/styles";
 import { fetchEvents } from "../scripts/events";
+import initLax from "../scripts/initLax";
 import moment from "moment";
 import theme from "../theme";
 
@@ -29,6 +30,8 @@ export default function Home() {
 
 			const events = await fetchEvents();
 			setLatestEvent(events[0]);
+
+			initLax();
 		})();
 	}, []);
 

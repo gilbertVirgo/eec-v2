@@ -37,6 +37,7 @@ export default function Leaders() {
 			<StripeWrapper>
 				{leaders.map(({ name, color, image, content }, index) => (
 					<Stripe
+						noLax
 						sticky={windowHeight > 600}
 						color={color}
 						key={`leaders-stripe-${index}`}

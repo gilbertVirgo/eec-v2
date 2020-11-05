@@ -10,6 +10,7 @@ export const Footer = () => {
 	return (
 		<Wrapper>
 			<Stripe
+				noLax
 				color={theme.color.grey}
 				bgProps={{ style: { height: "1000px" } }}
 				gridProps={{ style: { rowGap: `8px` } }}

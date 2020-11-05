@@ -25,6 +25,7 @@ import Layout from "../components/Layout";
 import List from "../components/List";
 import Player from "../components/Player";
 import Stripe from "../components/Stripe";
+import initLax from "../scripts/initLax";
 import moment from "moment";
 import styled from "styled-components";
 import theme from "../theme";
@@ -73,6 +74,8 @@ export default function Sermons() {
 
 			setLatestEpisode(episodes[0]);
 			setEpisodes(episodes.slice(1));
+
+			initLax();
 		})();
 	}, []);
 
@@ -101,8 +104,6 @@ export default function Sermons() {
 
 	const pages = splitIntoPages(filteredEpisodes || []);
 	const episodesOnPage = pages[pageNumber] || [];
-
-	console.log(episodesOnPage, pageNumber);
 
 	return (
 		<Layout.Default title="Sermons">
