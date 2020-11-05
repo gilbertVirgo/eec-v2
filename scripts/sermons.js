@@ -18,8 +18,6 @@ export const parse = (episode) => {
 		Array.isArray(description.elements) &&
 		description.elements[0].cdata.replace(/<\/?[^>]+(>|$)/g, "");
 
-	console.log(episode);
-
 	const seriesTitle = getXMLProperty(episode, "itunes:summary");
 
 	return {
