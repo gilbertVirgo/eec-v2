@@ -8,19 +8,19 @@ import {
 } from "../components";
 
 import { Banner } from "../components/Banner";
-import { default as DefaultStripe } from "../components/Stripe";
 import Layout from "../components/Layout";
+import Stripe from "../components/Stripe";
 import about from "../data/about";
 import initLax from "../scripts/initLax";
 import styled from "styled-components";
 import theme from "../theme";
 
-const Stripe = styled(DefaultStripe)`
-	margin-bottom: 50px;
-	${theme.breakpoint("md")`
-		margin-bottom: 150px;
-	`}
-`;
+// const Stripe = styled(DefaultStripe)`
+// 	margin-bottom: 50px;
+// 	${theme.breakpoint("md")`
+// 		margin-bottom: 150px;
+// 	`}
+// `;
 
 const Card = styled.div`
 	grid-column: 1 / -1;
@@ -34,9 +34,9 @@ export default function About() {
 	const [windowHeight, setWindowHeight] = React.useState();
 
 	React.useEffect(() => {
-		initLax();
-
 		setWindowHeight(window.innerHeight);
+
+		setTimeout(initLax);
 	}, []);
 
 	return (
@@ -62,7 +62,11 @@ export default function About() {
 				</Banner.Body>
 			</Banner>
 
-			<Stripe color={theme.color.orange}>
+			<Stripe
+				standalone
+				style={{ color: "white", marginBottom: "100px" }}
+				color={theme.color.orange}
+			>
 				<Stripe.Body style={{ color: "white" }}>
 					<Title>What sort of church are we?</Title>
 					<Paragraph>
@@ -101,14 +105,7 @@ export default function About() {
 					<img src="/assets/images/church.jpg" />
 				</Stripe.Figure>
 			</Stripe>
-			<Stripe
-				className="lax"
-				data-lax-opacity="vh 0, 250px 1"
-				data-lax-anchor="self"
-				expands
-				expandsAll
-				color={theme.color.swampGreen}
-			>
+			<Stripe expands expandsAll color={theme.color.swampGreen}>
 				<Stripe.Badge
 					textColor="white"
 					starColor={theme.color.swampGreen}
@@ -131,14 +128,7 @@ export default function About() {
 				</Stripe.FigureGrid>
 			</Stripe>
 
-			<Stripe
-				className="lax"
-				data-lax-opacity="vh 0, 200px 1"
-				data-lax-anchor="self"
-				expands
-				expandsAll
-				color={theme.color.purple}
-			>
+			<Stripe expands expandsAll color={theme.color.purple}>
 				<Stripe.Badge
 					textColor="white"
 					starColor={theme.color.purple}

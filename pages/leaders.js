@@ -2,6 +2,7 @@ import {
 	BadgeWrapper,
 	Columns,
 	Gradient,
+	Image,
 	ImageWrapper,
 	StripeWrapper,
 } from "../styles/leaders";
@@ -18,9 +19,9 @@ export default function Leaders() {
 	const [windowHeight, setWindowHeight] = React.useState();
 
 	React.useEffect(() => {
-		initLax();
-
 		setWindowHeight(window.innerHeight);
+
+		initLax();
 	}, []);
 
 	return (
@@ -53,12 +54,11 @@ export default function Leaders() {
 							</Badge>
 						</BadgeWrapper>
 						<ImageWrapper
-							className="lax"
-							data-lax-scale="vh 0.7, -vh 1"
-							data-lax-anchor="self"
+						// className="lax"
+						// data-lax-scale="vh 0.7, -vh 1"
+						// data-lax-anchor="self"
 						>
-							<img src={image} />
-							<Gradient color={color} />
+							<Image src={image} />
 						</ImageWrapper>
 						<Columns>
 							<div>

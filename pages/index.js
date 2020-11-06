@@ -1,3 +1,5 @@
+import * as complete from "../scripts/complete";
+
 import { Banner, Carousel } from "../components/Banner";
 import { Caption, Group, Heading, Paragraph } from "../components";
 import {
