@@ -18,19 +18,30 @@ export const BadgeWrapper = styled.div`
 	${theme.breakpoint("xl")`grid-column: 2 / 5`}
 `;
 
+export const Image = styled.div`
+	background-image: url(${({ src }) => src});
+	background-size: auto 90%;
+	background-repeat: no-repeat;
+	background-position: left bottom;
+	padding-bottom: 130%;
+
+	${theme.breakpoint("lg")`
+		padding-bottom: 100%;
+	`}
+`;
+
 export const ImageWrapper = styled.div`
+	grid-column: 1 / -1;
 	grid-row: 1;
 	z-index: 0;
-	transform-origin: 0 50%;
 
 	position: absolute;
-	transform: translateX(50%);
 	left: -${theme.gutter}px;
 	top: 0;
 	width: 100%;
 	/* max-width: 400px; */
 
-	img {
+	${Image} {
 		display: block;
 		width: 100%;
 
@@ -57,24 +68,8 @@ export const ImageWrapper = styled.div`
         grid-column: 1 / 8;
     `}
 
-	${theme.breakpoint("lg")`margin-top: -100px; grid-column: 1 / 6;
+	${theme.breakpoint("lg")`margin-top: -70px; grid-column: 1 / 6;
 	`}
-`;
-
-export const Gradient = styled.div`
-	display: none;
-
-	position: absolute;
-	left: 0;
-	top: 0;
-
-	background: ${({ color }) =>
-		`linear-gradient(180deg, rgba(100, 105, 75, 0) 0%, ${color} 85%)`};
-	background-size: 100% 100%;
-	width: 100%;
-	height: 100%;
-
-	${theme.breakpoint("lg")`display: none`}
 `;
 
 export const Columns = styled.div.attrs({ "data-role": "columns" })`
@@ -97,7 +92,7 @@ export const Columns = styled.div.attrs({ "data-role": "columns" })`
 		column-count: 2;
 	`}
 
-	${theme.breakpoint("xl")`grid-column: 7 / -1;`}
+	${theme.breakpoint("xl")`grid-column: 6 / -2;`}
 
 	div {
 		display: inline-block;
