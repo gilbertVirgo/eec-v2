@@ -27,8 +27,8 @@ export function Stripe({
 	return (
 		<Wrapper
 			className={noLax ? "" : "lax"}
-			data-lax-opacity="vh 0.75, (window.innerHeight/2) 1"
-			data-lax-translate-y="vh 150px, (window.innerHeight/2) 0px"
+			data-lax-opacity="vh 0.55, (window.innerHeight/2) 1"
+			data-lax-translate-y="vh 250px, (window.innerHeight/2.5) 0px"
 			data-lax-anchor="self"
 			sticky={sticky}
 			{...props}
