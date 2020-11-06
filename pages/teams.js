@@ -1,5 +1,3 @@
-import * as complete from "../scripts/complete";
-
 import {
 	Caption,
 	Container,
