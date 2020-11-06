@@ -45,7 +45,7 @@ export const Wrapper = styled.div.attrs({
 		standalone
 			? `margin-bottom: 50px !important`
 			: theme.map(
-					{ xs: 150, sm: 175, md: 200, lg: 225, xl: 250 },
+					{ xs: 100, sm: 125, md: 150, lg: 175, xl: 200 },
 					(marginBottom) => `margin-bottom: ${marginBottom}px;`
 			  )}  
 			  
