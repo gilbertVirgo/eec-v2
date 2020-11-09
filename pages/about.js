@@ -15,13 +15,6 @@ import initLax from "../scripts/initLax";
 import styled from "styled-components";
 import theme from "../theme";
 
-// const Stripe = styled(DefaultStripe)`
-// 	margin-bottom: 50px;
-// 	${theme.breakpoint("md")`
-// 		margin-bottom: 150px;
-// 	`}
-// `;
-
 const Card = styled.div`
 	grid-column: 1 / -1;
 
@@ -128,7 +121,7 @@ export default function About() {
 				</Stripe.FigureGrid>
 			</Stripe>
 
-			<Stripe expands expandsAll color={theme.color.purple}>
+			<Stripe expands expandsAll color={theme.color.purple} standalone>
 				<Stripe.Badge
 					textColor="white"
 					starColor={theme.color.purple}

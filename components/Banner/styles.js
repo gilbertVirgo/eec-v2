@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
 	z-index: 1;
 	background-position: center;
 	background-repeat: no-repeat;
-	background-image: url(${({ src }) => src});
+	background-color: black;
 	background-size: cover;
 	width: 100%;
 	/* ${theme.map(
@@ -29,11 +29,20 @@ export const Wrapper = styled.div`
 
 	box-sizing: border-box;
 	padding: ${theme.gutter * 3}px 0;
+
+	${theme.breakpoint("xs", "md")`
+		padding: 0;
+	`}
 `;
 
 export const Container = styled(DefaultContainer)`
 	position: relative;
 	z-index: 1;
+
+	${theme.breakpoint("xs", "md")`
+		margin-top: 0;
+		margin-bottom: 0;
+	`}
 `;
 
 export const Overlay = styled.div`
@@ -54,7 +63,8 @@ export const Frame = styled.div`
 
 	background-image: url(${({ src }) => src});
 	background-size: cover;
-	background-position: center;
+	background-position: top;
+	background-repeat: no-repeat;
 	will-change: transform;
 	transition: transform 1s;
 	transform: ${({ delta }) => {
