@@ -15,9 +15,7 @@ export const Carousel = ({ children, gridProps, frames, ...props }) => {
 	React.useEffect(() => {
 		const interval = setInterval(increment, intervalLength);
 
-		return () => {
-			clearInterval(interval);
-		};
+		return () => clearInterval(interval);
 	}, []);
 
 	return (
