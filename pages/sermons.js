@@ -107,9 +107,9 @@ export default function Sermons() {
 
 	return (
 		<Layout.Default title="Sermons">
-			<Banner src="/assets/images/sermons-banner.jpg">
+			<Banner src="/assets/images/sermons.jpg">
 				<Banner.Badge
-					borderColor={theme.color.blue}
+					borderColor={theme.color.purple}
 					starColor="white"
 					textColor="white"
 				>
@@ -118,13 +118,13 @@ export default function Sermons() {
 			</Banner>
 			<Stripe
 				standalone
-				color={theme.color.blue}
+				color={theme.color.purple}
 				style={{ color: "white" }}
 			>
 				<Stripe.Badge
 					borderColor="white"
 					textColor="white"
-					starColor={theme.color.blue}
+					starColor={theme.color.purple}
 				>
 					Last Sunday
 				</Stripe.Badge>
