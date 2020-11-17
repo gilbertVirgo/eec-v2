@@ -55,11 +55,7 @@ export default function About() {
 				</Banner.Body>
 			</Banner>
 
-			<Stripe
-				standalone
-				style={{ color: "white", marginBottom: "100px" }}
-				color={theme.color.orange}
-			>
+			<Stripe style={{ color: "white" }} color={theme.color.orange}>
 				<Stripe.Body style={{ color: "white" }}>
 					<Title>What sort of church are we?</Title>
 					<Paragraph>
@@ -106,9 +102,7 @@ export default function About() {
 				>
 					Some Do's
 				</Stripe.Badge>
-				<Stripe.FigureGrid
-					style={{ color: "white", marginTop: "-45px" }}
-				>
+				<Stripe.FigureGrid style={{ color: "white" }}>
 					{about.dos.map(({ title, body }, index) => (
 						<Card
 							key={`about-item-${index}`}
@@ -121,7 +115,7 @@ export default function About() {
 				</Stripe.FigureGrid>
 			</Stripe>
 
-			<Stripe expands expandsAll color={theme.color.purple} standalone>
+			<Stripe expands expandsAll color={theme.color.purple}>
 				<Stripe.Badge
 					textColor="white"
 					starColor={theme.color.purple}
@@ -129,9 +123,7 @@ export default function About() {
 				>
 					Some Dont's
 				</Stripe.Badge>
-				<Stripe.FigureGrid
-					style={{ color: "white", marginTop: "-45px" }}
-				>
+				<Stripe.FigureGrid style={{ color: "white" }}>
 					{about.donts.map(({ title, body }, index) => (
 						<Card
 							key={`about-item-${index}`}
