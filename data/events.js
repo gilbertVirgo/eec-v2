@@ -1,7 +1,7 @@
 export const upcoming = [
 	{
 		title: "Baptism Service",
-		location: "The Henry Raine's Building, E2 3DY",
+		location: "The Henry Raine Building, E2 3DY",
 		date: "03/08/2020",
 		description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`,
 		image: "/assets/images/banner.png",

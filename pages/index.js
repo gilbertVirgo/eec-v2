@@ -260,7 +260,7 @@ export default function Home() {
 					<Pin fill="white" />
 				</div>
 				<div style={{ gridColumn: "2 / -1" }}>
-					<Heading>The Henry Raine's Building</Heading>
+					<Heading>The Henry Raine Building</Heading>
 					<Caption>London, E2 9LY</Caption>
 				</div>
 				<div
