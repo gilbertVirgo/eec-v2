@@ -113,7 +113,7 @@ export default function Home() {
 
 					<Group>
 						<Paragraph>
-							We’ve recently begun meeting together again at{" "}
+							We’ve recently begun meeting together again at the{" "}
 							<a
 								style={{ fontWeight: "bold" }}
 								href="javascript:void(0)"
@@ -125,7 +125,7 @@ export default function Home() {
 										});
 								}}
 							>
-								Raine’s Foundation School
+								Henry Raine Building
 							</a>{" "}
 							but we are continuing to broadcast our service on
 							YouTube.
