@@ -67,6 +67,7 @@ export default function Teams() {
 										helperIndex
 									) => (
 										<Card
+											large
 											key={`teams-stripe-${index}-helper-${helperIndex}`}
 											style={{
 												transformOrigin: `50% 50%`,

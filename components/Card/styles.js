@@ -3,15 +3,20 @@ import theme from "../../theme";
 
 export const Wrapper = styled.div`
 	grid-column: span 6;
+	position: relative;
 
-	${theme.breakpoint("lg")`grid-column: span 4`}
+	${theme.breakpoint("lg")`
+		grid-column: ${({ large }) => (large ? `span 6` : `span 4`)};
+
+		&:last-child:nth-child(odd) {
+			${({ large }) => large && `grid-column: 4 / 10`}
+		}
+	`}
 `;
 export const Image = styled.div`
-	height: 50vw;
-	${theme.breakpoint("sm")`height: 230px;`}
-	${theme.breakpoint("lg")`height: 320px`}
+	padding-top: 60%;
 
-    background-image: url("${({ src }) => src}");
+	background-image: url("${({ src }) => src}");
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
