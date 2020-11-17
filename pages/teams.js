@@ -63,7 +63,7 @@ export default function Teams() {
 							<Stripe.FigureGrid>
 								{helper.map(
 									(
-										{ names, image, location },
+										{ names, image, location, link },
 										helperIndex
 									) => (
 										<Card
@@ -78,7 +78,18 @@ export default function Teams() {
 										>
 											<Card.Image src={image.url} />
 											<Card.Body>
-												<Subheading>{names}</Subheading>
+												{link ? (
+													<a href={link.url}>
+														<Subheading>
+															{names}
+														</Subheading>
+													</a>
+												) : (
+													<Subheading>
+														{names}
+													</Subheading>
+												)}
+
 												{location && (
 													<Paragraph>
 														{location}
