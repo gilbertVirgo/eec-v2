@@ -131,7 +131,15 @@ export default function Home() {
 							YouTube.
 							<br />
 							<br />
-							We meet at 10:30 on a Sunday morning.
+							We normally meet at 10:30 on a Sunday morning,
+							however please check{" "}
+							<a
+								style={{ fontWeight: "bold" }}
+								href="https://twitter.com/EastEndChurch"
+							>
+								social media
+							</a>{" "}
+							for the most up-to-date information.
 						</Paragraph>
 					</Group>
 
