@@ -31,6 +31,11 @@ export default class MyDocument extends Document {
 						rel="stylesheet"
 					/>
 
+					<link
+						rel="stylesheet"
+						href="https://use.typekit.net/wtp3tgd.css"
+					/>
+
 					{/* Global styles */}
 					<style>{globalStyles}</style>
 
