@@ -55,63 +55,76 @@ export default function Events() {
 					</Paragraph>
 				</Banner.Body>
 			</Banner>
-			{events ? (
-				<React.Fragment>
-					<Stripe
-						standalone
-						color={theme.color.blue}
-						style={{ color: "white" }}
-					>
-						<Stripe.Badge
-							borderColor="white"
-							textColor="white"
-							starColor={theme.color.blue}
+			{typeof events === "object" ? (
+				events.length ? (
+					<React.Fragment>
+						<Stripe
+							standalone
+							color={theme.color.blue}
+							style={{ color: "white" }}
 						>
-							Coming up
-						</Stripe.Badge>
-						<Stripe.Body>
-							<Group>
-								<Heading>{events[0].title}</Heading>
-								<List style={{ listStyleType: "none" }}>
-									<List.Item icon="/assets/icons/pin.svg">
-										<Caption>{events[0].location}</Caption>
-									</List.Item>
-									<List.Item icon="/assets/icons/calendar.svg">
-										<Caption>
-											{moment(events[0].date).format(
-												"MMMM Do YYYY"
-											)}
-										</Caption>
-									</List.Item>
-								</List>
-							</Group>
+							<Stripe.Badge
+								borderColor="white"
+								textColor="white"
+								starColor={theme.color.blue}
+							>
+								Coming up
+							</Stripe.Badge>
+							<Stripe.Body>
+								<Group>
+									<Heading>{events[0].title}</Heading>
+									<List style={{ listStyleType: "none" }}>
+										<List.Item icon="/assets/icons/pin.svg">
+											<Caption>
+												{events[0].location}
+											</Caption>
+										</List.Item>
+										<List.Item icon="/assets/icons/calendar.svg">
+											<Caption>
+												{moment(events[0].date).format(
+													"MMMM Do YYYY"
+												)}
+											</Caption>
+										</List.Item>
+									</List>
+								</Group>
 
-							<Paragraph>{events[0].description}</Paragraph>
-						</Stripe.Body>
-						<Stripe.Figure>
-							<img src={events[0].image.url} />
-						</Stripe.Figure>
-					</Stripe>
-					<Container>
-						<Heading style={{ marginBottom: "30px" }}>
-							Coming Soon
-						</Heading>
+								<Paragraph>{events[0].description}</Paragraph>
+							</Stripe.Body>
+							<Stripe.Figure>
+								<img src={events[0].image.url} />
+							</Stripe.Figure>
+						</Stripe>
+						<Container>
+							<Heading style={{ marginBottom: "30px" }}>
+								Coming Soon
+							</Heading>
 
-						<Grid>
-							{events
-								.slice(1)
-								.map(({ title, description, image }, index) => (
-									<Card key={`events-card-${index}`}>
-										<Card.Image src={image.url} />
-										<Card.Body>
-											<Caption>{title}</Caption>
-											<Paragraph>{description}</Paragraph>
-										</Card.Body>
-									</Card>
-								))}
-						</Grid>
-					</Container>
-				</React.Fragment>
+							<Grid>
+								{events
+									.slice(1)
+									.map(
+										(
+											{ title, description, image },
+											index
+										) => (
+											<Card key={`events-card-${index}`}>
+												<Card.Image src={image.url} />
+												<Card.Body>
+													<Caption>{title}</Caption>
+													<Paragraph>
+														{description}
+													</Paragraph>
+												</Card.Body>
+											</Card>
+										)
+									)}
+							</Grid>
+						</Container>
+					</React.Fragment>
+				) : (
+					""
+				)
 			) : (
 				<ActivityIndicator>Loading events...</ActivityIndicator>
 			)}

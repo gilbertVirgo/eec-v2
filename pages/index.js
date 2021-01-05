@@ -23,6 +23,8 @@ export default function Home() {
 	const [latestEpisode, setLatestEpisode] = React.useState();
 	const [latestEvent, setLatestEvent] = React.useState();
 
+	const [loading, setLoading] = React.useState(true);
+
 	React.useEffect(() => {
 		(async function () {
 			const episodes = await fetchPodcastEpisodes();
@@ -30,6 +32,8 @@ export default function Home() {
 
 			const events = await fetchEvents();
 			setLatestEvent(events[0]);
+
+			setLoading(false);
 
 			initLax();
 		})();
@@ -158,59 +162,63 @@ export default function Home() {
 				</Stripe.Figure>
 			</Stripe>
 
-			<Stripe color={theme.color.orange} style={{ color: "white" }}>
-				<Stripe.Badge
-					borderColor="white"
-					textColor="white"
-					starColor={theme.color.orange}
-				>
-					Coming up
-				</Stripe.Badge>
-				{latestEvent ? (
-					<React.Fragment>
-						<Stripe.Body>
-							<Group>
-								<Heading>{latestEvent.title}</Heading>
-								<List style={{ listStyleType: "none" }}>
-									<List.Item icon="/assets/icons/pin.svg">
-										<Caption>
-											{latestEvent.location}
-										</Caption>
-									</List.Item>
-									<List.Item icon="/assets/icons/calendar.svg">
-										<Caption>
-											{moment(latestEvent.date).format(
-												"MMMM Do YYYY"
-											)}
-										</Caption>
-									</List.Item>
-								</List>
-							</Group>
+			{(loading || latestEvent) && (
+				<Stripe color={theme.color.orange} style={{ color: "white" }}>
+					<Stripe.Badge
+						borderColor="white"
+						textColor="white"
+						starColor={theme.color.orange}
+					>
+						Coming up
+					</Stripe.Badge>
+					{latestEvent ? (
+						<React.Fragment>
+							<Stripe.Body>
+								<Group>
+									<Heading>{latestEvent.title}</Heading>
+									<List style={{ listStyleType: "none" }}>
+										<List.Item icon="/assets/icons/pin.svg">
+											<Caption>
+												{latestEvent.location}
+											</Caption>
+										</List.Item>
+										<List.Item icon="/assets/icons/calendar.svg">
+											<Caption>
+												{moment(
+													latestEvent.date
+												).format("MMMM Do YYYY")}
+											</Caption>
+										</List.Item>
+									</List>
+								</Group>
 
-							<Group>
-								<Paragraph>{latestEvent.description}</Paragraph>
-							</Group>
+								<Group>
+									<Paragraph>
+										{latestEvent.description}
+									</Paragraph>
+								</Group>
 
-							<Caption>
-								<a href="/events">
-									See what's on
-									<img
-										style={{ marginLeft: "4px" }}
-										src="/assets/icons/chevron-right.svg"
-									/>
-								</a>
-							</Caption>
-						</Stripe.Body>
-						<Stripe.Figure>
-							<img src={latestEvent.image.url} />
-						</Stripe.Figure>
-					</React.Fragment>
-				) : (
-					<ActivityIndicator inverted>
-						Loading events...
-					</ActivityIndicator>
-				)}
-			</Stripe>
+								<Caption>
+									<a href="/events">
+										See what's on
+										<img
+											style={{ marginLeft: "4px" }}
+											src="/assets/icons/chevron-right.svg"
+										/>
+									</a>
+								</Caption>
+							</Stripe.Body>
+							<Stripe.Figure>
+								<img src={latestEvent.image.url} />
+							</Stripe.Figure>
+						</React.Fragment>
+					) : (
+						<ActivityIndicator inverted>
+							Loading events...
+						</ActivityIndicator>
+					)}
+				</Stripe>
+			)}
 
 			<Stripe color={theme.color.blue} style={{ color: "white" }}>
 				<Stripe.Badge

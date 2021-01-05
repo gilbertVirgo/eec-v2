@@ -10,6 +10,8 @@ export const fetchEvents = async () => {
 	results = parse(results);
 	results = sort(results);
 
+	console.log({ results }, typeof results);
+
 	return results;
 };
 
