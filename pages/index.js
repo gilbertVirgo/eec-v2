@@ -27,7 +27,7 @@ export default function Home() {
 	React.useEffect(() => {
 		(async function () {
 			const meetingInfo = await fetchMeetingInfo();
-			setMeetingInfo(meetingInfo[0]);
+			setMeetingInfo(meetingInfo);
 
 			const episodes = await fetchPodcastEpisodes();
 			setLatestEpisode(episodes[0]);
@@ -148,7 +148,6 @@ export default function Home() {
 							but we are continuing to broadcast our service on
 							YouTube.
 							<br />
-							<br />
 							{RichText.render(meetingInfo)}
 							{/* We normally meet at 10:30 on a Sunday morning,
 							however please check{" "}
@@ -177,7 +176,7 @@ export default function Home() {
 				</Stripe.Figure>
 			</Stripe>
 
-			{highlightedEvent && (
+			{highlightedEvent ? (
 				<Stripe color={theme.color.orange} style={{ color: "white" }}>
 					<Stripe.Badge
 						borderColor="white"
@@ -225,6 +224,8 @@ export default function Home() {
 						<img src={highlightedEvent.image.url} />
 					</Stripe.Figure>
 				</Stripe>
+			) : (
+				""
 			)}
 
 			<Stripe color={theme.color.blue} style={{ color: "white" }}>
