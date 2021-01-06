@@ -22,6 +22,7 @@ import theme from "../theme";
 export default function Events() {
 	const [events, setEvents] = React.useState();
 	const [regularEvents, setRegularEvents] = React.useState();
+	const [loading, setLoading] = React.useState(true);
 
 	React.useEffect(() => {
 		(async function () {
@@ -31,12 +32,14 @@ export default function Events() {
 			const regularEvents = await fetchRegularEvents();
 			setRegularEvents(regularEvents);
 
+			setLoading(false);
+
 			initLax();
 		})();
 	}, []);
 
 	return (
-		<Layout.Default title="What's On">
+		<Layout.Default loading={loading} title="What's On">
 			<Banner src="/assets/images/whats-on.jpg">
 				<Banner.Badge
 					borderColor={theme.color.orange}

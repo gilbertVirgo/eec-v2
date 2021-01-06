@@ -22,6 +22,7 @@ const colors = ["blue", "orange", "purple", "swampGreen"].map(
 
 export default function Teams() {
 	const [teams, setTeams] = React.useState();
+	const [loading, setLoading] = React.useState(true);
 
 	React.useEffect(() => {
 		(async function () {
@@ -29,12 +30,14 @@ export default function Teams() {
 
 			setTeams(teams);
 
+			setLoading(false);
+
 			setTimeout(initLax);
 		})();
 	}, []);
 
 	return (
-		<Layout.Default title="Teams">
+		<Layout.Default loading={loading} title="Teams">
 			<Banner src="/assets/images/teams.jpg">
 				<Banner.Badge
 					borderColor={theme.color.purple}

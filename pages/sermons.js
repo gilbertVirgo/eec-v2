@@ -58,6 +58,7 @@ const PageIncrement = styled.a.attrs({ href: "javascript:void(0)" })`
 export default function Sermons() {
 	const [episodes, setEpisodes] = React.useState();
 	const [filteredEpisodes, setFilteredEpisodes] = React.useState();
+	const [loading, setLoading] = React.useState(true);
 
 	const [searchText, setSearchText] = React.useState("");
 	const [dateRange, setDateRange] = React.useState({
@@ -74,6 +75,8 @@ export default function Sermons() {
 
 			setLatestEpisode(episodes[0]);
 			setEpisodes(episodes.slice(1));
+
+			setLoading(false);
 
 			initLax();
 		})();
@@ -106,7 +109,7 @@ export default function Sermons() {
 	const episodesOnPage = pages[pageNumber] || [];
 
 	return (
-		<Layout.Default title="Sermons">
+		<Layout.Default loading={loading} title="Sermons">
 			<Banner src="/assets/images/sermons.jpg">
 				<Banner.Badge
 					borderColor={theme.color.purple}
