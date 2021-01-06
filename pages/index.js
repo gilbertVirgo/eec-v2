@@ -33,9 +33,9 @@ export default function Home() {
 			setLatestEpisode(episodes[0]);
 
 			const highlightedEvent = await fetchHighlightedEvent();
-			setHighlightedEvent(highlightedEvent);
 
-			if (!highlightedEvent) {
+			if (highlightedEvent) setHighlightedEvent(highlightedEvent);
+			else {
 				const events = await fetchEvents();
 
 				if (events.length) setHighlightedEvent(events[0]);
