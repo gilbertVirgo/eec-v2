@@ -1,6 +1,6 @@
 import Prismic from "prismic-javascript";
 
-export default async (docType) => {
+export default async (value, property = "type") => {
 	const api = await Prismic.api(
 		"https://eastendchurch.cdn.prismic.io/api/v2",
 		{
@@ -9,7 +9,7 @@ export default async (docType) => {
 		}
 	);
 	let { results } = await api.query(
-		Prismic.Predicates.at("document.type", docType)
+		Prismic.Predicates.at(`document.${property}`, value)
 	);
 
 	return results;

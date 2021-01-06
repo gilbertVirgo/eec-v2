@@ -1,37 +1,47 @@
 import { Banner, Carousel } from "../components/Banner";
 import { Caption, Group, Heading, Paragraph } from "../components";
-import {
-	fetchPodcastEpisodes,
-	getXMLAttribute,
-	getXMLProperty,
-} from "../scripts/sermons";
+import { fetchHighlightedEvent, fetchMeetingInfo } from "../scripts/home";
 
 import ActivityIndicator from "../components/ActivityIndicator";
 import Layout from "../components/Layout";
 import List from "../components/List";
 import Pin from "../public/assets/icons/pin.svg";
 import Player from "../components/Player";
+import { RichText } from "prismic-reactjs";
 import Stripe from "../components/Stripe";
 import { Tagline } from "../styles/index";
 import { animationLength } from "../components/List/styles";
 import { fetchEvents } from "../scripts/events";
+import { fetchPodcastEpisodes } from "../scripts/sermons";
 import initLax from "../scripts/initLax";
 import moment from "moment";
 import theme from "../theme";
 
 export default function Home() {
 	const [latestEpisode, setLatestEpisode] = React.useState();
-	const [latestEvent, setLatestEvent] = React.useState();
+	const [highlightedEvent, setHighlightedEvent] = React.useState();
+	const [meetingInfo, setMeetingInfo] = React.useState();
 
 	const [loading, setLoading] = React.useState(true);
 
 	React.useEffect(() => {
 		(async function () {
+			const meetingInfo = await fetchMeetingInfo();
+			setMeetingInfo(meetingInfo[0]);
+
 			const episodes = await fetchPodcastEpisodes();
 			setLatestEpisode(episodes[0]);
 
-			const events = await fetchEvents();
-			setLatestEvent(events[0]);
+			const highlightedEvent = await fetchHighlightedEvent();
+			setHighlightedEvent(highlightedEvent);
+
+			if (!highlightedEvent) {
+				const events = await fetchEvents();
+
+				if (events.length) setHighlightedEvent(events[0]);
+			}
+
+			console.log({ meetingInfo, highlightedEvent });
 
 			setLoading(false);
 
@@ -40,7 +50,11 @@ export default function Home() {
 	}, []);
 
 	return (
-		<Layout.Default title="Home" style={{ color: "white" }}>
+		<Layout.Default
+			title="Home"
+			style={{ color: "white" }}
+			loading={loading}
+		>
 			<Carousel
 				src="/assets/images/banner.png"
 				gridProps={{ style: { rowGap: theme.gutter + "px" } }}
@@ -135,7 +149,8 @@ export default function Home() {
 							YouTube.
 							<br />
 							<br />
-							We normally meet at 10:30 on a Sunday morning,
+							{RichText.render(meetingInfo)}
+							{/* We normally meet at 10:30 on a Sunday morning,
 							however please check{" "}
 							<a
 								style={{ fontWeight: "bold" }}
@@ -143,7 +158,7 @@ export default function Home() {
 							>
 								social media
 							</a>{" "}
-							for the most up-to-date information.
+							for the most up-to-date information. */}
 						</Paragraph>
 					</Group>
 
@@ -162,7 +177,7 @@ export default function Home() {
 				</Stripe.Figure>
 			</Stripe>
 
-			{(loading || latestEvent) && (
+			{highlightedEvent && (
 				<Stripe color={theme.color.orange} style={{ color: "white" }}>
 					<Stripe.Badge
 						borderColor="white"
@@ -171,52 +186,44 @@ export default function Home() {
 					>
 						Coming up
 					</Stripe.Badge>
-					{latestEvent ? (
-						<React.Fragment>
-							<Stripe.Body>
-								<Group>
-									<Heading>{latestEvent.title}</Heading>
-									<List style={{ listStyleType: "none" }}>
-										<List.Item icon="/assets/icons/pin.svg">
-											<Caption>
-												{latestEvent.location}
-											</Caption>
-										</List.Item>
-										<List.Item icon="/assets/icons/calendar.svg">
-											<Caption>
-												{moment(
-													latestEvent.date
-												).format("MMMM Do YYYY")}
-											</Caption>
-										</List.Item>
-									</List>
-								</Group>
+					<Stripe.Body>
+						<Group>
+							<Heading>{highlightedEvent.title}</Heading>
+							<List style={{ listStyleType: "none" }}>
+								<List.Item icon="/assets/icons/pin.svg">
+									<Caption>
+										{highlightedEvent.location}
+									</Caption>
+								</List.Item>
+								<List.Item icon="/assets/icons/calendar.svg">
+									<Caption>
+										{moment(highlightedEvent.date).format(
+											"MMMM Do YYYY"
+										)}
+									</Caption>
+								</List.Item>
+							</List>
+						</Group>
 
-								<Group>
-									<Paragraph>
-										{latestEvent.description}
-									</Paragraph>
-								</Group>
+						<Group>
+							<Paragraph>
+								{highlightedEvent.description}
+							</Paragraph>
+						</Group>
 
-								<Caption>
-									<a href="/events">
-										See what's on
-										<img
-											style={{ marginLeft: "4px" }}
-											src="/assets/icons/chevron-right.svg"
-										/>
-									</a>
-								</Caption>
-							</Stripe.Body>
-							<Stripe.Figure>
-								<img src={latestEvent.image.url} />
-							</Stripe.Figure>
-						</React.Fragment>
-					) : (
-						<ActivityIndicator inverted>
-							Loading events...
-						</ActivityIndicator>
-					)}
+						<Caption>
+							<a href="/events">
+								See what's on
+								<img
+									style={{ marginLeft: "4px" }}
+									src="/assets/icons/chevron-right.svg"
+								/>
+							</a>
+						</Caption>
+					</Stripe.Body>
+					<Stripe.Figure>
+						<img src={highlightedEvent.image.url} />
+					</Stripe.Figure>
 				</Stripe>
 			)}
 
