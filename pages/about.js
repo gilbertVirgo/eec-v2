@@ -91,7 +91,7 @@ export default function About() {
 					</Paragraph>
 				</Stripe.Body>
 				<Stripe.Figure>
-					<img src="/assets/images/church.jpg" />
+					<img src="/assets/images/ii_k3a320gz2.png" />
 				</Stripe.Figure>
 			</Stripe>
 			<Stripe expands expandsAll color={theme.color.swampGreen}>
