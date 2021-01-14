@@ -57,7 +57,7 @@ export default function About() {
 
 			<Stripe style={{ color: "white" }} color={theme.color.orange}>
 				<Stripe.Body style={{ color: "white" }}>
-					<Title>What sort of church are we?</Title>
+					<Title>What sort of church are&nbsp;we?</Title>
 					<Paragraph>
 						We are part of the{" "}
 						<a
