@@ -144,7 +144,7 @@ export default function Home() {
 								}}
 							>
 								Henry Raine Building
-							</a>{" "}
+							</a>
 							, but check social media for up-to-date information.
 							<br />
 							{RichText.render(meetingInfo)}
