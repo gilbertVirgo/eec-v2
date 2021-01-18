@@ -131,7 +131,7 @@ export default function Home() {
 
 					<Group>
 						<Paragraph>
-							We’ve recently begun meeting together again at the{" "}
+							We normally meet together at the{" "}
 							<a
 								style={{ fontWeight: "bold" }}
 								href="javascript:void(0)"
@@ -145,19 +145,9 @@ export default function Home() {
 							>
 								Henry Raine Building
 							</a>{" "}
-							but we are continuing to broadcast our service on
-							YouTube.
+							, but check social media for up-to-date information.
 							<br />
 							{RichText.render(meetingInfo)}
-							{/* We normally meet at 10:30 on a Sunday morning,
-							however please check{" "}
-							<a
-								style={{ fontWeight: "bold" }}
-								href="https://twitter.com/EastEndChurch"
-							>
-								social media
-							</a>{" "}
-							for the most up-to-date information. */}
 						</Paragraph>
 					</Group>
 
