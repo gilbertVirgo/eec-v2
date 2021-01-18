@@ -35,7 +35,6 @@ export const Title = styled.h1`
 `;
 
 export const Heading = styled.h3`
-	font-family: ${theme.font.family.body};
 	font-weight: lighter;
 	font-size: 32px;
 	margin: 0 0 ${theme.gutter}px;
@@ -54,7 +53,6 @@ export const Caption = styled.h5.attrs({ className: "caption" })`
 `;
 
 export const Paragraph = styled.p`
-	font-family: ${theme.font.family.body};
 	font-size: 16px;
 	line-height: 21px;
 	margin: 0 0 5px;

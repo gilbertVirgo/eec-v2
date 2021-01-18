@@ -1,0 +1,15 @@
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+body,
+input {
+	font-family: "Myriad Pro", myriad-pro, sans-serif;
+	font-weight: 300;
+	font-style: normal;
+}

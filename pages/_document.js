@@ -2,7 +2,6 @@ import Document, { Head, Main, NextScript } from "next/document";
 
 // Import styled components ServerStyleSheet
 import { ServerStyleSheet } from "styled-components";
-import globalStyles from "../global-styles";
 
 export default class MyDocument extends Document {
 	static getInitialProps({ renderPage }) {
@@ -27,17 +26,12 @@ export default class MyDocument extends Document {
 				<Head>
 					{/* Step 5: Output the styles in the head  */}
 					<link
-						href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
-						rel="stylesheet"
-					/>
-
-					<link
 						rel="stylesheet"
 						href="https://use.typekit.net/wtp3tgd.css"
 					/>
 
 					{/* Global styles */}
-					<style>{globalStyles}</style>
+					<link rel="stylesheet" href="/main.css" />
 
 					{this.props.styleTags}
 				</Head>

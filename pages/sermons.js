@@ -179,7 +179,6 @@ export default function Sermons() {
 						</Section>
 						<Section
 							style={{
-								fontFamily: theme.font.family.body,
 								marginBottom: theme.gutter * 3 + "px",
 								padding: "0 15px",
 								boxSizing: "border-box",
@@ -216,10 +215,6 @@ export default function Sermons() {
 										<Card
 											key={`episodes-item-${index}`}
 											column={5 + (index % 2) * 4}
-											style={{
-												fontFamily:
-													theme.font.family.body,
-											}}
 										>
 											<Subheading>{title}</Subheading>
 											<Paragraph>

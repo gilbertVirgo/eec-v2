@@ -61,7 +61,6 @@ export const Search = {
 		border: none;
 		background-color: none;
 		flex: 1;
-		font-family: ${theme.font.family.body};
 		outline: none;
 	`,
 };

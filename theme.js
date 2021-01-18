@@ -22,8 +22,7 @@ export default {
 	},
 	font: {
 		family: {
-			body: `"Myriad Pro", sans-serif`,
-			title: `"Bebas Neue", sans-serif; text-transform: uppercase; font-weight: 400`,
+			title: `"Bebas Neue", bebas-neue, sans-serif; text-transform: uppercase; font-weight: 400`,
 		},
 	},
 	map: createMap(breakpoints),
