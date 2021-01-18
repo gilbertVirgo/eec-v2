@@ -14,6 +14,15 @@ export const Player = ({ src, inverted, ...props }) => {
 		setCurrentTime(audio.current.currentTime);
 	};
 
+	const handlePlayClick = () => {
+		if (audio.current) {
+			if (!playing) audio.current.play();
+			else audio.current.pause();
+		}
+
+		setPlaying(!playing);
+	};
+
 	React.useEffect(() => {
 		let updateInterval;
 
@@ -27,13 +36,6 @@ export const Player = ({ src, inverted, ...props }) => {
 			clearInterval(updateInterval);
 		};
 	}, [audio.current]);
-
-	React.useEffect(() => {
-		if (audio.current) {
-			if (playing) audio.current.play();
-			else audio.current.pause();
-		}
-	}, [playing]);
 
 	const handleMovePlayhead = (value) => {
 		audio.current.currentTime = value;
@@ -50,7 +52,7 @@ export const Player = ({ src, inverted, ...props }) => {
 					<Play
 						inverted={inverted}
 						playing={playing}
-						onClick={() => setPlaying(!playing)}
+						onClick={handlePlayClick}
 					/>
 
 					<BarWrapper>
