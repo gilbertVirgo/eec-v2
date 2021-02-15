@@ -211,9 +211,13 @@ export default function Sermons() {
 						<React.Fragment>
 							{episodesOnPage.map(
 								({ title, author, pubDate, url }, index) => {
+									// Use random key so that player is reloaded with new media
+
 									return (
 										<Card
-											key={`episodes-item-${index}`}
+											key={`episodes-item-${Math.floor(
+												Math.random() * 1000
+											)}`}
 											column={5 + (index % 2) * 4}
 										>
 											<Subheading>{title}</Subheading>
