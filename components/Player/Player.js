@@ -44,7 +44,7 @@ export const Player = ({ src, inverted, ...props }) => {
 
 	return (
 		<React.Fragment>
-			<audio ref={audio} onCanPlay={() => setCanPlay(true)} hidden>
+			<audio ref={audio} onLoadedMetadata={() => setCanPlay(true)} hidden>
 				<source src={src} type="audio/mpeg" />
 			</audio>
 			{canPlay ? (
