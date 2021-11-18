@@ -4,6 +4,8 @@
 
 Website for East End Church. Works with a Prismic backend (events) and Podbean (sermons/podcast).
 
+Deployed to Netlify - no server login needed!
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 To learn more about Next.js, take a look at the following resources:
@@ -26,14 +28,6 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 1. Node
 2. NPM
 3. `next-js` NPM module
-
-### Configuration
-
-Environment variables(?) - _should be placed inside a file named `.env` at the top level of the repository file structure_
-
-1.
-2.
-3.
 
 ### How to run locally
 
