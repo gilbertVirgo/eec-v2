@@ -21,6 +21,12 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 2. `/pages` contains the pages
 3. `/pages/index.js` index/home page
 
+
+### Podbean link-up
+- Podbean serves the podcast episodes for this website
+- It generates an RSS feed which is interpreted by a script at `/scripts/sermons.js`
+  - This script uses the NPM `xml-js` library to parse the RSS feed
+
 # Set up
 
 ### Prerequisite software
