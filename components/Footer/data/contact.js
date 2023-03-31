@@ -10,8 +10,8 @@ export default [
 		link: "mailto:info@eastendchurch.co.uk",
 	},
 	{
-		icon: "/assets/icons/twitter.svg",
-		content: "@EastEndChurch",
-		link: "https://twitter.com/EastEndChurch",
+		icon: "/assets/icons/instagram.svg",
+		content: "@EastEndChurch_",
+		link: "https://instagram.com/eastendchurch_",
 	},
 ];
