@@ -8,8 +8,10 @@ export const getXMLProperty = (itemProps, tagName) => {
 	return "";
 };
 
-export const getXMLAttribute = (itemProps, tagName, attrName) => {
-	return itemProps.find(({ name }) => name === tagName).attributes[attrName];
+export const getXMLAttribute = (itemProps, tagName, attrName, backup) => {
+	const tag = itemProps.find(({ name }) => name === tagName);
+	if (!tag) return backup;
+	return tag.attributes[attrName];
 };
 
 export const parse = (episode) => {
@@ -25,7 +27,12 @@ export const parse = (episode) => {
 		author: getXMLProperty(episode, "itunes:author"),
 		pubDate: new Date(getXMLProperty(episode, "pubDate")),
 		url: getXMLAttribute(episode, "enclosure", "url"),
-		image: getXMLAttribute(episode, "itunes:image", "href"),
+		image: getXMLAttribute(
+			episode,
+			"itunes:image",
+			"href",
+			"/assets/images/this-sunday.jpg"
+		),
 		description,
 		seriesTitle: description !== seriesTitle ? seriesTitle : undefined,
 	};
@@ -64,5 +71,6 @@ export const fetchPodcastEpisodes = async () => {
 	return channel.elements
 		.filter(({ name }) => name === "item")
 		.map(({ elements }) => elements)
-		.map(parse);
+		.map(parse)
+		.sort(({ pubDate: a }, { pubDate: b }) => new Date(b) - new Date(a));
 };
