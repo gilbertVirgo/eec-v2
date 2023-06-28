@@ -31,7 +31,7 @@ export const parse = (episode) => {
 			episode,
 			"itunes:image",
 			"href",
-			"/assets/images/this-sunday.jpg"
+			"https://uca13b4a29294405e2b3e50fff9e.previews.dropboxusercontent.com/p/thumb/AB9B0EEoboZK7VvALUIQfVhXD35uAq4xsSE4GrWjpayDpxTmWP159I-YwZvt3hic1IY52U86zFEHJrnmijx8P6ZQ-Xn2bi5eczz3ypBHrYz0KpYpeHkCqxalS9k1j0JxMXbsqQmz0NShq3o_6XDo8XHV1CMeAz4pI5t3L9GjhBcmy95ZPJBGtP4HYQAyRJZPmCJ-SxoIOpEoZ7EyXXw5zWApu9-oihQQMc9Ebp1AFzEGHMB69tpnEAQEHnvW1gldOrJD-7O4hJMC5-4EJvculuEPAnbxWRKOxaejsc69uK_v_oz0MwmmTXupcfAvjHYMBYCYLyvIMpFw0kO96JKqFjJKKYgIcIA6cyZjtfPNeFwYrRvcnyTOQ5vt6Nbj0rjufz4/p.png"
 		),
 		description,
 		seriesTitle: description !== seriesTitle ? seriesTitle : undefined,
