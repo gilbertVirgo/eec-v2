@@ -18,6 +18,7 @@ import initLax from "../scripts/initLax";
 import moment from "moment";
 import { regular } from "../data/events";
 import theme from "../theme";
+import { fetchLeaders } from "../scripts/leaders";
 
 export default function Events() {
 	const [events, setEvents] = React.useState();
@@ -27,6 +28,7 @@ export default function Events() {
 	React.useEffect(() => {
 		(async function () {
 			const events = await fetchEvents();
+			const leaders = await fetchLeaders();
 			setEvents(events);
 
 			const regularEvents = await fetchRegularEvents();

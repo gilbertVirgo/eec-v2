@@ -8,6 +8,8 @@ import List from "../components/List";
 import Pin from "../public/assets/icons/pin.svg";
 import Player from "../components/Player";
 import { RichText } from "prismic-reactjs";
+import React from "react";
+import {render} from "react-dom";
 import Stripe from "../components/Stripe";
 import { Tagline } from "../styles/index";
 import { animationLength } from "../components/List/styles";
@@ -16,6 +18,7 @@ import { fetchPodcastEpisodes } from "../scripts/sermons";
 import initLax from "../scripts/initLax";
 import moment from "moment";
 import theme from "../theme";
+
 
 export default function Home() {
 	const [latestEpisode, setLatestEpisode] = React.useState();
